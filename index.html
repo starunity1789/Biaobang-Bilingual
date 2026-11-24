@@ -538,15 +538,8 @@
             <button id="settings-open-btn" data-icon="sliders">Settings</button>
             <div class="toolbar-spacer"></div>
 
-            <div class="toolbar-dropdown" id="saveload-dropdown">
-                <button class="toolbar-dropdown-btn" id="saveload-btn" data-icon="download" data-caret>Save / Export</button>
-                <div class="toolbar-dropdown-menu menu-right" id="saveload-menu">
-                    <button id="export-image-btn" data-icon="image">Export Image</button>
-                    <div class="menu-sep"></div>
-                    <button id="export-json-btn" data-icon="braces">Export JSON</button>
-                    <button id="import-json-btn" data-icon="upload">Import JSON</button>
-                </div>
-            </div>
+            <button id="save-layout-btn" data-icon="save" title="Save tier names, colors, tabs and title for next time">Save Settings</button>
+            <button id="export-image-btn" data-icon="download">Export Image</button>
         </div>
 
         <!-- Tier Tab Bar -->
@@ -789,8 +782,9 @@
                 </label>
                 <div
                     class="modal-actions"
-                    style="justify-content: flex-end; margin-top: 15px"
+                    style="margin-top: 15px"
                 >
+                    <button id="clear-layout-btn" class="btn-danger" data-icon="trash">Clear Saved Settings</button>
                     <button id="settings-close-btn" class="btn-info">
                         Done
                     </button>
@@ -1053,6 +1047,13 @@
                 "Export JSON": "导出 JSON 存档",
                 "Import JSON": "导入 JSON 存档",
                 "Export Image": "导出图片",
+                "Save Settings": "保存设置",
+                "Save tier names, colors, tabs and title for next time": "保存梯队名称、颜色、标签页和标题，下次打开自动恢复",
+                "Settings saved. They will be restored next time you open Biaobang.": "设置已保存，下次打开飙榜会自动恢复。",
+                "Could not save settings in this browser.": "无法在此浏览器中保存设置。",
+                "Clear Saved Settings": "清除已保存的设置",
+                "Clear saved tier names, colors, tabs and title? The current screen will not change.": "清除已保存的梯队名称、颜色、标签页和标题？当前画面不会改变。",
+                "Saved settings cleared.": "已清除保存的设置。",
                 // Bank
                 "Image Bank": "图片库",
                 "Move all images from tiers back to the bank": "把梯队中的所有图片移回图片库",
@@ -1294,9 +1295,79 @@
                 if (!h1) return;
                 if (!state.title || DEFAULT_TITLES.includes(state.title)) {
                     state.title = tr("My Tier List");
-                    h1.innerText = state.title;
                 }
+                if (h1.innerText !== state.title) h1.innerText = state.title;
                 document.title = state.title + " · " + tr("Biaobang");
+            }
+
+            // ---------- Saved settings (tiers, tabs, title) ----------
+            // Only the structure is saved: tier names/colours/order, tab names, the
+            // title and app settings. Images are not saved.
+            const LAYOUT_STORAGE_KEY = "biaobang.layout.v1";
+
+            function saveLayout() {
+                syncStateFromDOM();
+                const data = {
+                    version: 1,
+                    title: state.title,
+                    activeTabId: state.activeTabId,
+                    settings: { ...state.settings },
+                    tabs: state.tabs.map((tab) => ({
+                        id: tab.id,
+                        name: tab.name,
+                        tiers: tab.tiers.map((t) => ({ id: t.id, name: t.name, color: t.color })),
+                    })),
+                };
+                try {
+                    localStorage.setItem(LAYOUT_STORAGE_KEY, JSON.stringify(data));
+                } catch (e) {
+                    showToast("Could not save settings in this browser.");
+                    return;
+                }
+                clearUnsaved();
+                showToast("Settings saved. They will be restored next time you open Biaobang.");
+            }
+
+            function loadSavedLayout() {
+                let data = null;
+                try {
+                    data = JSON.parse(localStorage.getItem(LAYOUT_STORAGE_KEY) || "null");
+                } catch (e) {
+                    data = null;
+                }
+                if (!data || !Array.isArray(data.tabs) || data.tabs.length === 0) return;
+                const tabs = data.tabs
+                    .filter((tab) => tab && typeof tab.id === "string" && Array.isArray(tab.tiers))
+                    .map((tab) => ({
+                        id: tab.id,
+                        name: String(tab.name || ""),
+                        tiers: tab.tiers
+                            .filter((t) => t && typeof t.id === "string")
+                            .map((t) => ({
+                                id: t.id,
+                                name: String(t.name ?? ""),
+                                color: /^#[0-9a-fA-F]{3,8}$/.test(t.color || "") ? t.color : "#a0a0a0",
+                                images: [],
+                            })),
+                    }));
+                if (tabs.length === 0) return;
+                state.tabs = tabs;
+                state.activeTabId = tabs.some((t) => t.id === data.activeTabId) ? data.activeTabId : tabs[0].id;
+                if (typeof data.title === "string" && data.title.trim()) state.title = data.title;
+                if (data.settings && typeof data.settings === "object") {
+                    const s = data.settings;
+                    if (["square", "aspect"].includes(s.aspectRatio)) state.settings.aspectRatio = s.aspectRatio;
+                    if (["bottom", "sidebar"].includes(s.layout)) state.settings.layout = s.layout;
+                    if (["preview", "bar"].includes(s.indicatorStyle)) state.settings.indicatorStyle = s.indicatorStyle;
+                    if (typeof s.showRank === "boolean") state.settings.showRank = s.showRank;
+                    if (typeof s.showFilename === "boolean") state.settings.showFilename = s.showFilename;
+                }
+            }
+
+            function clearSavedLayout() {
+                if (!confirm("Clear saved tier names, colors, tabs and title? The current screen will not change.")) return;
+                try { localStorage.removeItem(LAYOUT_STORAGE_KEY); } catch (e) {}
+                showToast("Saved settings cleared.");
             }
 
             function applyLanguage(lang, opts = {}) {
@@ -1356,6 +1427,7 @@
                 "external": '<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
                 "check-all": '<path d="M18 6 7 17l-5-5M22 10l-7.5 7.5L13 16"/>',
                 "plus": '<path d="M5 12h14M12 5v14"/>',
+                "save": '<path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/>',
             };
             function iconSvg(name, cls) {
                 return '<svg class="icon' + (cls ? " " + cls : "") + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || "") + "</svg>";
@@ -1387,6 +1459,8 @@
             function setupChrome() {
                 hydrateIcons(document);
                 applyTheme(currentTheme(), false);
+                document.getElementById("save-layout-btn").addEventListener("click", saveLayout);
+                document.getElementById("clear-layout-btn").addEventListener("click", clearSavedLayout);
                 document.getElementById("theme-toggle").addEventListener("click", () => {
                     applyTheme(currentTheme() === "dark" ? "light" : "dark", true);
                 });
@@ -1650,6 +1724,7 @@
                 if (window.matchMedia("(pointer: coarse)").matches) {
                     state.settings.layout = "bottom";
                 }
+                loadSavedLayout();
                 loadPersistedSettings();
 
                 renderTabs();
@@ -2484,7 +2559,7 @@
 
                 document
                     .getElementById("export-json-btn")
-                    .addEventListener("click", async () => {
+                    ?.addEventListener("click", async () => {
                         showLoading("Preparing export...");
                         await new Promise((r) => requestAnimationFrame(r));
                         syncStateFromDOM();
@@ -2534,7 +2609,7 @@
 
                 document
                     .getElementById("import-json-btn")
-                    .addEventListener("click", () => {
+                    ?.addEventListener("click", () => {
                         document.getElementById("import-mode-modal").classList.add("active");
                     });
 

@@ -21,7 +21,8 @@
 - 图片支持选择文件、拖拽、`Ctrl+V` 粘贴、图片链接，支持 GIF 动图。
 - 图片可在梯队之间拖动排序，支持正方形裁切 / 保持比例、压缩、改名、添加描述。
 - 多标签页：同一批图片可以做多份排行。
-- 导出 PNG / JPEG 图片（最高 24 倍分辨率），以及 JSON 存档的导出 / 导入。
+- **保存设置**：梯队名称、颜色、顺序、标签页和榜单标题点一下「保存设置」就会记住，下次打开自动恢复（图片不保存）。
+- 导出 PNG / JPEG 图片（最高 24 倍分辨率）。
 - 单个 `index.html`，没有任何外部依赖，也不联网。
 
 ### 使用
@@ -41,7 +42,8 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 - Add images from files, drag & drop, `Ctrl+V`, or a URL. GIFs stay animated.
 - Drag to sort images across tiers. Crop to square or keep the aspect ratio, compress, rename, and add descriptions.
 - Multiple tabs, so one image set can have several rankings.
-- Export as PNG / JPEG (up to 24×) and save or load JSON files.
+- **Save Settings** remembers tier names, colors, order, tabs and the title, and restores them next time (images are not saved).
+- Export as PNG / JPEG (up to 24×).
 - A single `index.html` with no external dependencies and no network calls.
 
 ### Usage
@@ -49,8 +51,8 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 - **Install on Windows:** run `install.ps1`. It copies the app to `%LOCALAPPDATA%\Programs\Biaobang` and creates a "飙榜双语版" desktop shortcut that opens in an Edge/Chrome app window.
 
 ## 隐私 · Privacy
-所有图片和数据都只在你的浏览器里。只有语言和主题偏好会存进 `localStorage`，排行榜内容需要你自己导出 JSON 保存。
-Everything stays in your browser. Only the language and theme preferences go to `localStorage`. To keep a tier list, export it as JSON.
+所有图片和数据都只在你的浏览器里。语言、主题和「保存设置」的内容存在浏览器的 `localStorage` 里，图片不会被保存。
+Everything stays in your browser. Language, theme and saved settings live in `localStorage`; images are not stored.
 
 ## 致谢 · Credits
 基于 [milk3e/Tier-List-Maker](https://github.com/milk3e/Tier-List-Maker)（CC0 公有领域）。本版本增加了中英双语、新的界面设计、主题切换、应用图标和 Windows 安装脚本。
