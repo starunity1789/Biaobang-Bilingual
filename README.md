@@ -1,43 +1,59 @@
-# Tier List Maker (Version 3.5)
-[Click here to use the web version without downloading it.](https://milk3e.github.io/Tier-List-Maker/)
+<p align="center">
+  <img src="assets/icon-128.png" width="96" height="96" alt="飙榜" />
+</p>
 
-<img width="500" height="270" alt="t" src="https://github.com/user-attachments/assets/5c1ad10e-af72-49f3-8919-217bd740c72c" />
+<h1 align="center">飙榜双语版 · Biaobang Bilingual</h1>
 
-This is a standalone HTML file you can open with your web browser, it lets you create [tier lists.](https://en.wikipedia.org/wiki/Tier_list)
+<p align="center">
+  完全离线的 Tier List 排行榜制作工具，一键切换中文 / English。<br/>
+  A fully offline tier list maker with a one-click Chinese / English switch.
+</p>
 
-**Features**
-- Creatable, moveable, colorable, deletable tiers.
-- Import images by file, URL, clipboard, or drag and drop. Move and sort them within tiers, can crop them or keep aspect ratio, can compress them, rename them, add descriptions, delete them, etc.
-- Gif support, animated in the tier list.
-- Save/Load by exporting and importing a .json file.
-- Create an image of the tier list with adjustable quality.
-- Adjustable layout and settings to change the workflow to your liking.
-- Shuffle button to make the order you tier things in unique.
-- Bloat-free, fully offline and local, with no localStorage useage.
-- And more!
+![浅色 · 中文](docs/screenshot-light-zh.jpg)
+![Dark · English](docs/screenshot-dark-en.jpg)
 
-**How to Download for Offline Use**
-1. Download 'index.html' by either clicking it above in the file list and then clicking the download button, or by clicking the green 'Code' button, downloading the zip, and extracting it.
-2. Double-click the html file to run it directly in your web browser.
-3. Have fun!
-- If you are on mobile, to run a local .html file, you may need to use an app like Webspace from F-Droid to open it. Some mobile browsers may be capable of running local .html files but it is not common.
+## 中文
 
-**Tips**
-- You can rename the page title by clicking on it, and rename image file names by clicking on them and typing over them.
-- When the image bank gets a large filesize, it can slow things down. Use the "Compress Images" button to keep it lean.
-- You can make multiple tier lists for the same images by creating new tier tabs.
+### 功能
+- **中 / EN 一键切换**：右上角切换界面语言，选择会被记住。
+- **浅色 / 深色主题**：默认跟随系统，也可以手动切换。
+- 梯队可以新增、删除、改名、改颜色、上下移动。
+- 图片支持选择文件、拖拽、`Ctrl+V` 粘贴、图片链接，支持 GIF 动图。
+- 图片可在梯队之间拖动排序，支持正方形裁切 / 保持比例、压缩、改名、添加描述。
+- 多标签页：同一批图片可以做多份排行。
+- 导出 PNG / JPEG 图片（最高 24 倍分辨率），以及 JSON 存档的导出 / 导入。
+- 单个 `index.html`，没有任何外部依赖，也不联网。
 
-If you want to use images from an existing tier list, there's an easy way to do so using an extension I made, [Media Grabber](https://github.com/milk3e/Media-Grabber-Extension). Simply go to a tier list website (or any suitable website with images), click Media Grabber, select the path that has specifically the tier list images (sometimes is split into multiple paths), then download it as a zip (keep the extension open while downloading, otherwise the download stops). Then just extract the zip holding the images, and dump those images into this tier list maker.
+### 使用
+- **直接用**：双击 `index.html`，在浏览器中打开。
+- **安装到桌面（Windows）**：运行 `install.ps1`，会把程序装到 `%LOCALAPPDATA%\Programs\Biaobang`，并在桌面创建「飙榜双语版」快捷方式（用 Edge / Chrome 的应用窗口模式打开）。
 
-If you don't want to use the extension and are on Firefox (or any Firefox fork), you can press Ctrl+I to open page info. While on a page with the images you want, you can go to the Media tab, sort by Type so you can see just 'Image' labeled media next to eachother, select the images you want and download them, then just add them into the tier list maker. Images from tier list sites often all share the same file path, making it easy to Shift+Click just what you want and not any extra stuff like GUI/page elements. (Keep Page Info open while downloading, otherwise the download stops).
+```powershell
+powershell -ExecutionPolicy Bypass -File install.ps1
+```
 
-Depending on your operating system, browser, or file explorer, you may have a cap for how many images you can import into the tier list maker at once. A simple workaround is just to break up the images into groups (for example, groups of 300), then import them one group at a time.
+## English
 
-If you are on a privacy-focused browser, you may have Canvas Data disabled, which can break certain features. A quick way in Firefox to enable it for that tab is to click the icon left of the URL (either looks like switches or like a picture), and enable it there.
+### Features
+- **中 / EN toggle** in the top-right corner; your choice is remembered.
+- **Light / dark theme** that follows the system by default.
+- Tiers you can add, delete, rename, recolor, and reorder.
+- Add images from files, drag & drop, `Ctrl+V`, or a URL. GIFs stay animated.
+- Drag to sort images across tiers. Crop to square or keep the aspect ratio, compress, rename, and add descriptions.
+- Multiple tabs, so one image set can have several rankings.
+- Export as PNG / JPEG (up to 24×) and save or load JSON files.
+- A single `index.html` with no external dependencies and no network calls.
 
-Some lite browsers like the DuckDuckGo browser on mobile may have weird colors or other issues.
+### Usage
+- **Open directly:** double-click `index.html`.
+- **Install on Windows:** run `install.ps1`. It copies the app to `%LOCALAPPDATA%\Programs\Biaobang` and creates a "飙榜双语版" desktop shortcut that opens in an Edge/Chrome app window.
 
+## 隐私 · Privacy
+所有图片和数据都只在你的浏览器里。只有语言和主题偏好会存进 `localStorage`，排行榜内容需要你自己导出 JSON 保存。
+Everything stays in your browser. Only the language and theme preferences go to `localStorage`. To keep a tier list, export it as JSON.
 
-*This project's code was made by [Google Gemini](https://gemini.google.com) and [Claude](https://claude.com), then edited by me.*
+## 致谢 · Credits
+基于 [milk3e/Tier-List-Maker](https://github.com/milk3e/Tier-List-Maker)（CC0 公有领域）。本版本增加了中英双语、新的界面设计、主题切换、应用图标和 Windows 安装脚本。
+Based on [milk3e/Tier-List-Maker](https://github.com/milk3e/Tier-List-Maker) (CC0 public domain). This version adds the bilingual UI, the redesign, theme switching, app icons, and the Windows installer.
 
-*This project is dedicated to the public domain [(CC0)](https://creativecommons.org/publicdomain/zero/1.0/). Feel free to copy, modify, distribute, or do whatever you want with it.*
+本项目同样以 [CC0](LICENSE) 发布。Released under [CC0](LICENSE) as well.

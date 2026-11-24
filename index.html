@@ -1,722 +1,575 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Tier List Maker</title>
+        <title>飙榜 · Biaobang</title>
+        <meta name="theme-color" content="#09090b" />
+        <link rel="icon" type="image/webp" href="data:image/webp;base64,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" />
+        <script>
+            (function () {
+                var t = null;
+                try { t = localStorage.getItem("biaobang.theme"); } catch (e) {}
+                if (t !== "light" && t !== "dark") t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                document.documentElement.setAttribute("data-theme", t);
+            })();
+        </script>
         <style>
+            /* ============================================================
+               Biaobang design system — tokens
+               ============================================================ */
             :root {
-                --bg-color: #1a1a1a;
-                --text-color: #ffffff;
-                --panel-color: #2a2a2a;
+                color-scheme: light;
+                --bg: #f7f7f8;
+                --surface: #ffffff;
+                --surface-2: #f4f4f5;
+                --surface-3: #e9e9ec;
+                --border: #e4e4e7;
+                --border-strong: #d4d4d8;
+                --text: #09090b;
+                --text-2: #52525b;
+                --text-3: #8e8e96;
+                --primary: #18181b;
+                --primary-hover: #27272a;
+                --on-primary: #ffffff;
+                --accent: #e11d48;
+                --accent-soft: rgba(225, 29, 72, 0.10);
+                --danger: #dc2626;
+                --danger-soft: rgba(220, 38, 38, 0.08);
+                --row-bg: #fbfbfc;
+                --focus: 0 0 0 3px rgba(225, 29, 72, 0.22);
+                --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+                --shadow-md: 0 4px 12px -2px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.04);
+                --shadow-xl: 0 24px 48px -12px rgba(16, 24, 40, 0.22), 0 0 0 1px rgba(16, 24, 40, 0.04);
+                --overlay: rgba(9, 9, 11, 0.40);
+                --appbar-bg: rgba(255, 255, 255, 0.78);
+                --radius-sm: 6px;
+                --radius: 10px;
+                --radius-lg: 14px;
+                --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI",
+                    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC",
+                    system-ui, sans-serif;
+                /* legacy aliases used by original code */
+                --bg-color: var(--bg);
+                --text-color: var(--text);
+                --panel-color: var(--surface);
             }
+            :root[data-theme="dark"] {
+                color-scheme: dark;
+                --bg: #09090b;
+                --surface: #121215;
+                --surface-2: #1a1a1e;
+                --surface-3: #26262b;
+                --border: #26262b;
+                --border-strong: #3a3a41;
+                --text: #fafafa;
+                --text-2: #a1a1aa;
+                --text-3: #71717a;
+                --primary: #fafafa;
+                --primary-hover: #e4e4e7;
+                --on-primary: #09090b;
+                --accent: #fb5d7a;
+                --accent-soft: rgba(251, 93, 122, 0.14);
+                --danger: #f87171;
+                --danger-soft: rgba(248, 113, 113, 0.10);
+                --row-bg: #0e0e11;
+                --focus: 0 0 0 3px rgba(251, 93, 122, 0.30);
+                --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+                --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.5);
+                --shadow-xl: 0 24px 60px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
+                --overlay: rgba(0, 0, 0, 0.60);
+                --appbar-bg: rgba(9, 9, 11, 0.72);
+            }
+
+            *, *::before, *::after { box-sizing: border-box; }
+            html { -webkit-text-size-adjust: 100%; }
             body {
-                font-family: sans-serif;
-                background-color: var(--bg-color);
-                color: var(--text-color);
-                margin: 8px 20px 20px;
+                font-family: var(--font);
+                font-size: 14px;
+                line-height: 1.5;
+                background: var(--bg);
+                color: var(--text);
+                margin: 0;
                 user-select: none;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                transition: background-color 0.2s ease, color 0.2s ease;
             }
+            h1, h2, h3 { letter-spacing: -0.01em; }
+            .icon { width: 16px; height: 16px; flex-shrink: 0; stroke: currentColor; fill: none;
+                stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+            /* ============================================================
+               App bar
+               ============================================================ */
+            .appbar {
+                position: sticky; top: 0; z-index: 400;
+                background: var(--appbar-bg);
+                backdrop-filter: saturate(180%) blur(14px);
+                -webkit-backdrop-filter: saturate(180%) blur(14px);
+                border-bottom: 1px solid var(--border);
+            }
+            .appbar-inner {
+                max-width: 1440px; margin: 0 auto; height: 56px;
+                padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            }
+            .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+            .brand-logo {
+                width: 30px; height: 30px; border-radius: 8px; display: block;
+                box-shadow: 0 0 0 1px var(--border), var(--shadow-sm);
+            }
+            .brand-name { font-weight: 650; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; }
+            .brand-badge {
+                font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-soft);
+                padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+            }
+            .appbar-actions { display: flex; align-items: center; gap: 8px; }
+
+            .seg {
+                display: inline-flex; padding: 3px; gap: 2px; border-radius: 9px;
+                background: var(--surface-2); border: 1px solid var(--border);
+            }
+            .seg .seg-btn {
+                height: 26px; padding: 0 11px; border: none; border-radius: 6px; background: transparent;
+                color: var(--text-2); font-size: 12.5px; font-weight: 550; box-shadow: none;
+            }
+            .seg .seg-btn:hover { background: transparent; color: var(--text); }
+            .seg .seg-btn[aria-pressed="true"] {
+                background: var(--surface); color: var(--text);
+                box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 0 0 1px var(--border);
+            }
+            .icon-btn {
+                width: 34px; height: 34px; padding: 0 !important; display: inline-flex; align-items: center;
+                justify-content: center; border-radius: 9px;
+            }
+
+            /* ============================================================
+               Page
+               ============================================================ */
+            .page { max-width: 1440px; margin: 0 auto; padding: 28px 24px 48px; }
+            .page-head { margin-bottom: 18px; }
+            #page-title {
+                font-size: 28px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2;
+                margin: 0; padding: 2px 6px; margin-left: -6px; border-radius: 8px;
+                cursor: text !important; display: inline-block; transition: background 0.15s;
+            }
+            #page-title:hover { background: var(--surface-2); }
+            .title-input {
+                font-size: 28px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2;
+                font-family: inherit; color: var(--text); background: var(--surface);
+                border: 1px solid var(--accent); box-shadow: var(--focus);
+                border-radius: 8px; padding: 2px 6px; margin-left: -7px; outline: none; max-width: 100%;
+            }
+            .page-sub { margin: 6px 0 0; color: var(--text-2); font-size: 14px; }
 
             /* Main Workspace Layout Wrapper */
-            .workspace-container {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                transition: flex-direction 0.3s ease;
-            }
-            .workspace-container.sidebar-mode {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            .workspace-container.sidebar-mode #tier-board {
-                flex-grow: 1;
-                width: 70%;
-            }
-
+            .workspace-container { display: flex; flex-direction: column; gap: 20px; }
+            .workspace-container.sidebar-mode { flex-direction: row; align-items: flex-start; }
+            .workspace-container.sidebar-mode #tier-board { flex-grow: 1; width: 70%; min-width: 0; }
             .workspace-container.sidebar-mode .image-bank-container {
-                width: 28%;
-                position: sticky;
-                top: 20px;
-                max-height: 85vh;
-                display: flex;
-                flex-direction: column;
-                z-index: 10;
+                width: 30%; min-width: 260px; position: sticky; top: 76px; max-height: calc(100vh - 96px);
+                display: flex; flex-direction: column; z-index: 10;
             }
+            .workspace-container.sidebar-mode #image-bank { flex-grow: 1; overflow-y: auto; max-height: 70vh; }
 
-            .workspace-container.sidebar-mode #image-bank {
-                flex-grow: 1;
-                overflow-y: auto;
-                max-height: 70vh;
-            }
-
-            /* Toolbar */
+            /* ============================================================
+               Controls
+               ============================================================ */
             .toolbar {
-                background: var(--panel-color);
-                padding: 15px;
-                border-radius: 8px;
-                margin-bottom: 10px;
-                display: flex;
-                gap: 15px;
-                align-items: center;
-                flex-wrap: wrap;
+                display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 18px;
             }
-            button,
-            input[type="file"],
+            .toolbar-spacer { flex: 1; }
+            button, input[type="file"], select {
+                font-family: inherit; font-size: 13.5px; font-weight: 500; line-height: 1;
+                height: 34px; padding: 0 12px; border-radius: 8px;
+                border: 1px solid var(--border); background: var(--surface); color: var(--text);
+                cursor: pointer; box-shadow: var(--shadow-sm);
+                transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s, opacity 0.15s;
+            }
+            button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; }
+            button:hover { background: var(--surface-2); border-color: var(--border-strong); }
+            button:active { transform: translateY(0.5px); }
+            button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
+                outline: none; box-shadow: var(--focus); border-color: var(--accent);
+            }
+            button:disabled { opacity: 0.45; cursor: not-allowed; }
+            button .caret { width: 14px; height: 14px; opacity: 0.6; margin-right: -3px; }
             select {
-                padding: 8px 12px;
-                border-radius: 4px;
-                border: none;
-                background: #444;
-                color: #fff;
-                cursor: pointer;
+                appearance: none; -webkit-appearance: none; padding-right: 32px; text-align: left;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238e8e96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+                background-repeat: no-repeat; background-position: right 10px center;
             }
-            button:hover {
-                background: #555;
+            .btn-primary, .btn-info {
+                background: var(--primary); color: var(--on-primary); border-color: var(--primary);
             }
+            .btn-primary:hover, .btn-info:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+            .btn-danger { color: var(--danger); background: var(--surface); }
+            .btn-danger:hover { background: var(--danger-soft); border-color: var(--danger); }
+            .btn-sm { height: 30px; padding: 0 10px; font-size: 12.5px; gap: 6px; }
+            .btn-sm .icon { width: 14px; height: 14px; }
+            .btn-ghost { background: transparent; border-color: transparent; box-shadow: none; }
+            .btn-ghost:hover { background: var(--surface-2); border-color: transparent; }
 
             /* Toolbar dropdowns */
-            .toolbar-dropdown {
-                position: relative;
-                display: inline-block;
-            }
-            .toolbar-dropdown-btn {
-                white-space: nowrap;
-            }
+            .toolbar-dropdown { position: relative; display: inline-block; }
+            .toolbar-dropdown-btn { white-space: nowrap; }
             .toolbar-dropdown-menu {
-                display: none;
-                position: absolute;
-                top: calc(100% + 4px);
-                left: 0;
-                background: #333;
-                border: 1px solid #555;
-                border-radius: 6px;
-                padding: 4px;
-                z-index: 500;
-                min-width: 200px;
-                box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-                flex-direction: column;
-                gap: 3px;
+                display: none; position: absolute; top: calc(100% + 6px); left: 0;
+                background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+                padding: 5px; z-index: 500; min-width: 220px; box-shadow: var(--shadow-xl);
+                flex-direction: column; gap: 1px;
             }
-            .toolbar-dropdown-menu.open {
-                display: flex;
-            }
+            .toolbar-dropdown-menu.menu-right { left: auto; right: 0; }
+            .toolbar-dropdown-menu.open { display: flex; animation: pop 0.14s ease-out; }
             .toolbar-dropdown-menu button {
-                width: 100%;
-                text-align: left;
-                background: transparent;
-                border-radius: 4px;
-                padding: 8px 12px;
-                white-space: nowrap;
+                width: 100%; justify-content: flex-start; text-align: left; background: transparent;
+                border: none; box-shadow: none; border-radius: 7px; padding: 0 10px; height: 34px;
+                color: var(--text); font-weight: 450;
             }
-            .toolbar-dropdown-menu button:hover {
-                background: #555;
-            }
+            .toolbar-dropdown-menu button .icon { color: var(--text-2); }
+            .toolbar-dropdown-menu button:hover { background: var(--surface-2); }
+            .menu-sep { height: 1px; background: var(--border); margin: 4px 6px; }
+            @keyframes pop { from { opacity: 0; transform: translateY(-4px) scale(0.98); } to { opacity: 1; transform: none; } }
 
-            /* Crop adjustment modal */
-            #crop-modal .modal-content {
-                width: 360px;
+            /* ============================================================
+               Tabs
+               ============================================================ */
+            .tab-bar {
+                display: flex; align-items: flex-end; gap: 2px; flex-wrap: wrap;
+                border-bottom: 1px solid var(--border); margin-bottom: 16px;
             }
-            .crop-canvas-wrap {
-                position: relative;
-                width: 100%;
-                background: #111;
-                border-radius: 6px;
-                overflow: hidden;
-                cursor: crosshair;
-                user-select: none;
+            .tab-bar .tier-tab, .tab-bar .tier-tab-add {
+                height: 38px; padding: 0 12px; border: none; border-radius: 0; background: transparent;
+                box-shadow: none; color: var(--text-2); font-weight: 500; position: relative;
+                margin-bottom: -1px; border-bottom: 2px solid transparent;
             }
-            #crop-canvas {
-                display: block;
-                width: 100%;
-            }
-            .crop-slider-row {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-size: 0.85em;
-                color: #ccc;
-            }
-            .crop-slider-row input[type=range] {
-                flex: 1;
-                padding: 0;
-                background: transparent;
-                border: none;
-                cursor: pointer;
-            }
-            .crop-slider-label {
-                width: 56px;
-                flex-shrink: 0;
-                font-weight: bold;
-                font-size: 0.85em;
-            }
-            .crop-slider-val {
-                width: 36px;
-                text-align: right;
-                flex-shrink: 0;
-                font-size: 0.82em;
-                color: #aaa;
-            }
+            .tab-bar .tier-tab:hover { color: var(--text); background: transparent; }
+            .tab-bar .tier-tab.active-tab { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+            .tab-bar .tier-tab-add { color: var(--text-3); gap: 5px; }
+            .tab-bar .tier-tab-add:hover { color: var(--text); background: transparent; }
+            .tab-bar .tier-tab-add .icon { width: 14px; height: 14px; }
+            .tab-drag-over { outline: 2px solid var(--accent); outline-offset: -4px; border-radius: 6px !important; }
 
-            /* Tier Board */
+            /* ============================================================
+               Tier Board
+               ============================================================ */
             .tier-board {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                margin-bottom: 20px;
+                display: flex; flex-direction: column; margin-bottom: 0;
+                background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+                overflow: hidden; box-shadow: var(--shadow-sm);
             }
-            .tier-row {
-                display: flex;
-                background: #111;
-                min-height: 80px;
-                border: 1px solid #333;
-            }
-
-            /* Reorder Handle Column */
+            .tier-row { display: flex; background: var(--row-bg); min-height: 84px; border-bottom: 1px solid var(--border); }
+            .tier-row:last-child { border-bottom: none; }
             .tier-handle {
-                width: 30px;
-                background: #222;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-                border-right: 1px solid #333;
-                flex-shrink: 0;
+                width: 30px; background: var(--surface); display: flex; flex-direction: column;
+                justify-content: center; align-items: center; gap: 2px; border-right: 1px solid var(--border); flex-shrink: 0;
             }
             .handle-btn {
-                background: none;
-                border: none;
-                color: #666;
-                font-size: 14px;
-                padding: 2px;
-                cursor: pointer;
+                background: none !important; border: none !important; box-shadow: none !important;
+                color: var(--text-3); height: 22px; width: 22px; padding: 0; border-radius: 5px; font-size: 10px;
             }
-            .handle-btn:hover {
-                color: #fff;
-            }
-
-            /* Tier Label Column */
+            .handle-btn:hover { color: var(--text); background: var(--surface-2) !important; }
+            .handle-btn:disabled { opacity: 0.25; }
+            .handle-btn .icon { width: 14px; height: 14px; }
             .tier-label {
-                width: 140px;
-                min-width: 140px;
-                max-width: 140px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 10px;
-                text-align: center;
-                font-weight: bold;
-                color: #000;
-                cursor: pointer;
-                transition: filter 0.1s;
-                box-sizing: border-box;
-                word-break: break-word;
-                overflow-wrap: break-word;
+                width: 112px; min-width: 112px; max-width: 112px; display: flex; align-items: center;
+                justify-content: center; padding: 10px; text-align: center; font-weight: 700; font-size: 18px;
+                letter-spacing: -0.01em; color: #111; cursor: pointer; transition: filter 0.12s;
+                box-sizing: border-box; word-break: break-word; overflow-wrap: break-word; position: relative;
             }
-            .tier-label:hover {
-                filter: brightness(1.1);
+            .tier-label:hover { filter: brightness(1.05) saturate(1.05); }
+            .tier-label::after {
+                content: ""; position: absolute; inset: 0; box-shadow: inset -1px 0 0 rgba(0,0,0,0.06);
+                pointer-events: none;
             }
-            .tier-label span {
-                width: 100%;
-                display: block;
-                overflow-wrap: break-word;
-                word-break: break-word;
+            .tier-label span { width: 100%; display: block; overflow-wrap: break-word; word-break: break-word; }
+            .tier-items {
+                display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; padding: 7px;
+                flex-grow: 1; min-height: 72px;
             }
 
-            /* Image Grids */
-            .tier-items {
-                display: flex;
-                flex-wrap: wrap;
-                align-content: flex-start;
-                gap: 6px;
-                padding: 6px;
-                flex-grow: 1;
-                min-height: 72px;
-            }
+            /* ============================================================
+               Image Bank
+               ============================================================ */
             .image-bank-container {
-                background: var(--panel-color);
-                padding: 15px;
-                border-radius: 8px;
+                background: var(--surface); padding: 16px; border-radius: var(--radius-lg);
+                border: 1px solid var(--border); box-shadow: var(--shadow-sm);
             }
+            .bank-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+            .bank-head h3 { margin: 0; font-size: 15px; font-weight: 650; }
+            #bank-count { font-size: 12px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+            .bank-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
             .image-bank {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 6px;
-                min-height: 150px;
-                background: #151515;
-                padding: 10px;
-                border-radius: 4px;
-                border: 2px dashed #444;
+                display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; min-height: 150px;
+                background: var(--surface-2); padding: 10px; border-radius: var(--radius);
+                border: 1.5px dashed var(--border-strong); position: relative;
+            }
+            .image-bank:empty::before {
+                content: attr(data-empty); position: absolute; inset: 0; display: flex; align-items: center;
+                justify-content: center; text-align: center; padding: 16px; color: var(--text-3); font-size: 13px;
+                line-height: 1.6; pointer-events: none;
             }
 
             /* Grid Layout Wrapper Setup */
             .tier-item-wrap {
-                position: relative;
-                display: inline-grid;
-                grid-template-areas: "stack";
-                place-items: center;
-                overflow: hidden;
+                position: relative; display: inline-grid; grid-template-areas: "stack"; place-items: center;
+                overflow: hidden; border-radius: 6px; box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
+                transition: transform 0.12s ease, box-shadow 0.12s ease;
             }
+            .tier-item-wrap:hover { box-shadow: 0 0 0 2px var(--accent); }
+            .hitbox-trigger { grid-area: stack; width: 100%; height: 100%; z-index: 10; cursor: grab; background: transparent; }
+            .tier-item-img { grid-area: stack; display: block; z-index: 1; pointer-events: none; }
 
-            /* THE HITBOX TRIGGER CONTAINER */
-            .hitbox-trigger {
-                grid-area: stack;
-                width: 100%;
-                height: 100%;
-                z-index: 10;
-                cursor: grab;
-                background: transparent;
-            }
+            .aspect-mode-inactive .tier-item-wrap, .aspect-mode-inactive .drag-placeholder { width: 70px; height: 70px; aspect-ratio: auto; }
+            .aspect-mode-inactive .tier-item-img, .aspect-mode-inactive .drag-placeholder img { width: 70px; height: 70px; object-fit: cover; }
+            .aspect-mode-active .tier-item-wrap, .aspect-mode-active .drag-placeholder { height: 70px; width: auto; aspect-ratio: auto; }
+            .aspect-mode-active .tier-item-img, .aspect-mode-active .drag-placeholder img { height: 70px; width: auto; object-fit: contain; }
 
-            /* Core Item Images Layout Base Styling */
-            .tier-item-img {
-                grid-area: stack;
-                display: block;
-                z-index: 1;
-                pointer-events: none;
-            }
-
-            /* Layout Mode Variations */
-            .aspect-mode-inactive .tier-item-wrap,
-            .aspect-mode-inactive .drag-placeholder {
-                width: 70px;
-                height: 70px;
-                aspect-ratio: auto;
-            }
-            .aspect-mode-inactive .tier-item-img,
-            .aspect-mode-inactive .drag-placeholder img {
-                width: 70px;
-                height: 70px;
-                object-fit: cover;
-            }
-
-            .aspect-mode-active .tier-item-wrap,
-            .aspect-mode-active .drag-placeholder {
-                height: 70px;
-                width: auto;
-                aspect-ratio: auto;
-            }
-            .aspect-mode-active .tier-item-img,
-            .aspect-mode-active .drag-placeholder img {
-                height: 70px;
-                width: auto;
-                object-fit: contain;
-            }
-
-            /* Dynamic Native Drag Placeholder Spot Maker */
             .drag-placeholder {
-                display: inline-grid;
-                grid-template-areas: "stack";
-                place-items: center;
-                opacity: 0.6;
-                pointer-events: none;
-                box-sizing: border-box;
-                outline: 2px dashed #4af;
-                background: rgba(68, 170, 255, 0.1);
-                overflow: hidden;
+                display: inline-grid; grid-template-areas: "stack"; place-items: center; opacity: 0.6;
+                pointer-events: none; box-sizing: border-box; outline: 2px dashed var(--accent);
+                background: var(--accent-soft); overflow: hidden; border-radius: 6px;
             }
-            .drag-placeholder img {
-                grid-area: stack;
-                display: block;
-                opacity: 0.6;
-                pointer-events: none;
-            }
-            .drag-placeholder.bar-style {
-                width: 4px !important;
-                background: #4af;
-                border: none;
-                opacity: 1;
-                margin: 0 2px;
-            }
-            .drag-placeholder.bar-style img {
-                display: none !important;
-            }
+            .drag-placeholder img { grid-area: stack; display: block; opacity: 0.6; pointer-events: none; }
+            .drag-placeholder.bar-style { width: 4px !important; background: var(--accent); border: none; outline: none; opacity: 1; margin: 0 2px; border-radius: 2px; }
+            .drag-placeholder.bar-style img { display: none !important; }
 
             /* GLOBAL ZOOM PORTAL PREVIEW */
             #global-zoom-portal {
-                position: fixed;
-                width: 70px;
-                height: 70px;
-                pointer-events: none;
-                z-index: 99999;
-                display: none;
-                transform-origin: center center;
-                transform: scale(2.2);
-                transition: opacity 0.1s ease;
-                opacity: 0;
+                position: fixed; width: 70px; height: 70px; pointer-events: none; z-index: 99999; display: none;
+                transform-origin: center center; transform: scale(2.2); transition: opacity 0.1s ease; opacity: 0;
             }
-
             #global-zoom-portal img {
-                width: 100% !important;
-                height: 100% !important;
-                display: block;
-                object-fit: contain !important;
-                filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.85));
+                width: 100% !important; height: 100% !important; display: block; object-fit: contain !important;
+                filter: drop-shadow(0px 6px 14px rgba(0, 0, 0, 0.45));
             }
-
             #global-zoom-portal .portal-meta {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%) scale(calc(1 / 2.2));
-                transform-origin: bottom center;
-                color: rgba(255, 255, 255, 0.95);
-                font-size: 10px;
-                line-height: 1.3;
-                text-align: center;
-                white-space: nowrap;
-                pointer-events: none;
-                padding: 2px 7px;
-                border-radius: 4px;
+                position: absolute; left: 50%; transform: translateX(-50%) scale(calc(1 / 2.2));
+                transform-origin: bottom center; font-size: 10px; line-height: 1.3; text-align: center;
+                white-space: nowrap; pointer-events: none; padding: 3px 8px; border-radius: 6px;
             }
             #portal-rank {
-                bottom: calc(100% + 12px);
-                font-size: 12px;
-                font-weight: bold;
-                color: rgba(255, 220, 100, 0.98);
-                background: rgba(0, 0, 0, 0.72);
-                border: 1px solid rgba(255, 220, 100, 0.35);
-                transform-origin: bottom center;
+                bottom: calc(100% + 12px); font-size: 12px; font-weight: 700; color: #fff;
+                background: var(--accent); transform-origin: bottom center;
             }
             #portal-filename {
-                bottom: calc(100% + 2px);
-                font-size: 10px;
-                color: rgba(220, 220, 220, 0.95);
-                background: rgba(0, 0, 0, 0.72);
-                border: 1px solid rgba(255, 255, 255, 0.12);
+                bottom: calc(100% + 2px); font-size: 10px; color: #f4f4f5; background: rgba(9, 9, 11, 0.86);
                 transform-origin: bottom center;
             }
-
             #global-zoom-portal .portal-tooltip {
-                position: absolute;
-                top: 72px;
-                left: 50%;
-                transform: translateX(-50%) scale(calc(1 / 2.2));
-                transform-origin: top center;
-                background: rgba(0, 0, 0, 0.95);
-                color: #fff;
-                padding: 6px 10px;
-                border-radius: 5px;
-                font-size: 12px;
-                line-height: 1.4;
-                min-width: 140px;
-                max-width: 280px;
-                width: max-content;
-                text-align: center;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-                border: 1px solid #555;
-                word-break: break-word;
-                white-space: normal;
+                position: absolute; top: 72px; left: 50%; transform: translateX(-50%) scale(calc(1 / 2.2));
+                transform-origin: top center; background: rgba(9, 9, 11, 0.92); color: #fff; padding: 7px 11px;
+                border-radius: 8px; font-size: 12px; line-height: 1.45; min-width: 140px; max-width: 280px;
+                width: max-content; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+                word-break: break-word; white-space: normal;
             }
 
+            /* ============================================================
+               Modals
+               ============================================================ */
             .modal-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                z-index: 1000;
-                visibility: hidden;
-                opacity: 0;
-                transition:
-                    opacity 0.2s,
-                    visibility 0.2s;
-                overflow-y: auto;
-                padding: 20px 12px;
-                box-sizing: border-box;
+                position: fixed; inset: 0; width: 100%; height: 100%; background: var(--overlay);
+                backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+                display: flex; align-items: flex-start; justify-content: center; z-index: 1000;
+                visibility: hidden; opacity: 0; transition: opacity 0.18s, visibility 0.18s;
+                overflow-y: auto; padding: 24px 12px; box-sizing: border-box;
             }
-            .modal-overlay.active {
-                visibility: visible;
-                opacity: 1;
-            }
+            .modal-overlay.active { visibility: visible; opacity: 1; }
             .modal-content {
-                background: #2a2a2a;
-                padding: 20px;
-                border-radius: 8px;
-                width: 340px;
-                max-width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-                margin: auto;
+                background: var(--surface); color: var(--text); padding: 22px; border-radius: 16px;
+                width: 360px !important; max-width: 100%; display: flex; flex-direction: column; gap: 14px;
+                box-shadow: var(--shadow-xl); margin: auto; transform: translateY(6px) scale(0.985);
+                transition: transform 0.18s ease;
             }
+            .modal-overlay.active .modal-content { transform: none; }
+            #crop-modal .modal-content { width: 380px !important; }
+            .modal-content h3 { margin: 0; font-size: 16px; font-weight: 650; }
+            .modal-content p { color: var(--text-2) !important; font-size: 13px !important; line-height: 1.55; margin: 0 !important; }
             .modal-content label {
-                font-weight: bold;
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
+                font-weight: 550; font-size: 13px; color: var(--text); display: flex; flex-direction: column;
+                gap: 6px; margin-top: 0 !important;
             }
-            .modal-content input[type="text"],
-            .modal-content textarea {
-                padding: 8px;
-                background: #444;
-                border: none;
-                color: #fff;
-                border-radius: 4px;
-                font-family: sans-serif;
+            .modal-content select { width: 100%; margin-top: 0 !important; font-weight: 450; }
+            .modal-content input[type="text"], .modal-content textarea {
+                padding: 9px 11px; background: var(--surface); border: 1px solid var(--border);
+                color: var(--text); border-radius: 8px; font-family: inherit; font-size: 13.5px;
+                box-shadow: var(--shadow-sm); user-select: text;
             }
-            .modal-content textarea {
-                resize: vertical;
-                height: 80px;
+            .modal-content input[type="color"] {
+                width: 100%; height: 36px; padding: 3px; border: 1px solid var(--border); border-radius: 8px;
+                background: var(--surface); cursor: pointer;
             }
-            .modal-actions {
-                display: flex;
-                justify-content: space-between;
-                gap: 8px;
-                margin-top: 10px;
+            .modal-content textarea { resize: vertical; height: 84px; }
+            .modal-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 6px !important; }
+            .modal-actions .btn-danger { margin-right: auto; }
+            .choice-card {
+                display: flex !important; flex-direction: row !important; align-items: flex-start; gap: 10px;
+                cursor: pointer; background: var(--surface); padding: 12px; border-radius: 10px;
+                border: 1px solid var(--border) !important; font-weight: 400 !important;
+                transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
             }
-            .btn-danger {
-                background: #8a1818;
+            .choice-card.selected { border-color: var(--accent) !important; background: var(--accent-soft); box-shadow: 0 0 0 1px var(--accent); }
+            .choice-card .choice-title { font-weight: 600; }
+            .choice-card .choice-desc { font-size: 12.5px; color: var(--text-2); margin-top: 2px; line-height: 1.5; }
+            input[type="radio"], input[type="checkbox"] { accent-color: var(--accent); }
+            .tier-check {
+                display: flex !important; flex-direction: row !important; align-items: center; gap: 10px;
+                cursor: pointer; padding: 8px 10px; border-radius: 8px; font-weight: 500 !important;
             }
-            .btn-danger:hover {
-                background: #aa2222;
+            .tier-check:hover { background: var(--surface-2); }
+            .tier-check-list {
+                display: flex; flex-direction: column; gap: 2px; max-height: 260px; overflow-y: auto;
+                background: var(--surface); padding: 4px; border-radius: 10px; border: 1px solid var(--border);
             }
-            .btn-info {
-                background: #2b5c8f;
-            }
-            .btn-info:hover {
-                background: #3a7bc0;
-            }
-            #return-all-btn:hover {
-                background: #555 !important;
-            }
-
             .modal-img-preview {
-                max-width: 100%;
-                max-height: 260px;
-                width: auto;
-                height: auto;
-                object-fit: contain;
-                display: block;
-                margin: 0 auto;
-                border-radius: 4px;
+                max-width: 100%; max-height: 260px; width: auto; height: auto; object-fit: contain; display: block;
+                margin: 0 auto; border-radius: 10px; background: var(--surface-2);
             }
-            @media (max-height: 600px) {
-                .modal-img-preview {
-                    max-height: 120px;
-                }
-            }
+            #modal-item-filename { color: var(--text-2) !important; border-bottom: 1px dashed var(--border-strong) !important; }
+            #modal-item-filename-wrap { color: var(--text-2) !important; }
+            #modal-item-filesize { color: var(--text-3) !important; }
+            .item-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+            .item-head-actions { display: flex; gap: 6px; align-items: center; }
+            @media (max-height: 600px) { .modal-img-preview { max-height: 120px; } }
 
-            /* Loading overlay styling rules */
+            /* Crop adjustment modal */
+            .crop-canvas-wrap {
+                position: relative; width: 100%; background: #0e0e11; border-radius: 10px; overflow: hidden;
+                cursor: crosshair; user-select: none;
+            }
+            #crop-canvas { display: block; width: 100%; }
+            .crop-slider-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-2); }
+            .crop-slider-row input[type=range] {
+                flex: 1; padding: 0; background: transparent; border: none; cursor: pointer; accent-color: var(--accent);
+            }
+            .crop-slider-label { width: 64px; flex-shrink: 0; font-weight: 550; font-size: 12.5px; color: var(--text); }
+            .crop-slider-val { width: 40px; text-align: right; flex-shrink: 0; font-size: 12px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+
+            /* Loading overlay */
             .loading-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.6);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                z-index: 2000;
-                visibility: hidden;
-                opacity: 0;
-                transition:
-                    opacity 0.15s,
-                    visibility 0.15s;
+                position: fixed; inset: 0; width: 100%; height: 100%; background: var(--overlay);
+                backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                z-index: 2000; visibility: hidden; opacity: 0; transition: opacity 0.15s, visibility 0.15s; color: #fff;
             }
-            .loading-overlay.active {
-                visibility: visible;
-                opacity: 1;
-            }
-            .loading-overlay.standby {
-                visibility: visible;
-                opacity: 1;
-                background: rgba(0, 0, 0, 0.35);
-                cursor: pointer;
-            }
-            .loading-overlay.standby .loading-spinner {
-                border-top-color: #888;
-                animation-duration: 1.4s;
-            }
-            #loading-dismiss-hint {
-                margin-top: 10px;
-                font-size: 0.78em;
-                color: #aaa;
-                display: none;
-            }
-            .loading-overlay.standby #loading-dismiss-hint {
-                display: block;
-            }
+            .loading-overlay.active { visibility: visible; opacity: 1; }
+            .loading-overlay.standby { visibility: visible; opacity: 1; background: rgba(0, 0, 0, 0.25); cursor: pointer; }
+            .loading-overlay.standby .loading-spinner { border-top-color: #a1a1aa; animation-duration: 1.4s; }
+            #loading-text { font-weight: 550 !important; font-size: 14px; }
+            #loading-dismiss-hint { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.7); display: none; }
+            .loading-overlay.standby #loading-dismiss-hint { display: block; }
             .loading-spinner {
-                width: 40px;
-                height: 40px;
-                border: 4px solid #444;
-                border-top: 4px solid #3a7bc0;
-                border-radius: 50%;
-                animation: spin 0.8s linear infinite;
-                margin-bottom: 10px;
+                width: 34px; height: 34px; border: 3px solid rgba(255,255,255,0.25); border-top: 3px solid #fff;
+                border-radius: 50%; animation: spin 0.75s linear infinite; margin-bottom: 14px;
             }
-            @keyframes spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
+            @keyframes spin { to { transform: rotate(360deg); } }
 
             /* Toast notification */
             #toast-notification {
-                position: fixed;
-                bottom: 30px;
-                left: 50%;
-                transform: translateX(-50%) translateY(20px);
-                background: rgba(30, 30, 30, 0.96);
-                color: #fff;
-                padding: 12px 22px;
-                border-radius: 8px;
-                font-size: 0.9em;
-                border: 1px solid #4af;
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-                z-index: 3000;
-                opacity: 0;
-                transition:
-                    opacity 0.25s ease,
-                    transform 0.25s ease;
-                pointer-events: none;
-                white-space: nowrap;
+                position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(16px);
+                background: #18181b; color: #fafafa; padding: 11px 18px; border-radius: 12px; font-size: 13.5px;
+                font-weight: 500; border: 1px solid rgba(255,255,255,0.08);
+                box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.45); z-index: 3000; opacity: 0;
+                transition: opacity 0.22s ease, transform 0.22s ease; pointer-events: none; white-space: nowrap;
             }
-            #toast-notification.visible {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
+            :root[data-theme="dark"] #toast-notification { background: #fafafa; color: #09090b; }
+            #toast-notification.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+            /* Tab ctx */
+            .stack-actions { display: flex; flex-direction: column; gap: 6px; }
+            .stack-actions button { justify-content: flex-start; height: 38px; }
+
+            /* Scrollbars */
+            ::-webkit-scrollbar { width: 10px; height: 10px; }
+            ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; }
+            ::-webkit-scrollbar-track { background: transparent; }
+
+            /* Responsive */
+            @media (max-width: 760px) {
+                .appbar-inner, .page { padding-left: 16px; padding-right: 16px; }
+                .brand-badge { display: none; }
+                #page-title, .title-input { font-size: 22px; }
+                .tier-label { width: 84px; min-width: 84px; max-width: 84px; font-size: 15px; }
+                .workspace-container.sidebar-mode { flex-direction: column; }
+                .workspace-container.sidebar-mode #tier-board, .workspace-container.sidebar-mode .image-bank-container { width: 100%; position: static; max-height: none; }
+                .toolbar-spacer { display: none; }
             }
-            /* Tab Bar */
-            .tier-tab {
-                padding: 6px 14px;
-                border-radius: 6px 6px 0 0;
-                background: #333;
-                color: #ccc;
-                cursor: pointer;
-                border: 1px solid #444;
-                border-bottom: none;
-                font-size: 0.9em;
-                user-select: none;
-                transition: background 0.15s;
-                white-space: nowrap;
-            }
-            .tier-tab:hover { background: #444; color: #fff; }
-            .tier-tab.active-tab { background: #2b5c8f; color: #fff; border-color: #3a7bc0; }
-            .tier-tab-add {
-                padding: 6px 12px;
-                border-radius: 6px 6px 0 0;
-                background: #2a2a2a;
-                color: #aaa;
-                cursor: pointer;
-                border: 1px dashed #555;
-                border-bottom: none;
-                font-size: 0.9em;
-            }
-            .tier-tab-add:hover { background: #333; color: #fff; }
-            .tab-drag-over { outline: 2px solid #4af; outline-offset: -2px; }
         </style>
     </head>
     <body>
-        <h1
-            id="page-title"
-            title="Click to edit title"
-            style="cursor: pointer; display: inline-block; margin: 8px 0 8px;"
-        >
-            Tier List Maker
-        </h1>
+        <header class="appbar">
+            <div class="appbar-inner">
+                <div class="brand">
+                    <img class="brand-logo" src="data:image/webp;base64,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" alt="" />
+                    <span class="brand-name">Biaobang</span>
+                    <span class="brand-badge">Bilingual</span>
+                </div>
+                <div class="appbar-actions">
+                    <div class="seg" role="group" aria-label="Language">
+                        <button class="seg-btn" data-lang="zh" aria-pressed="false">中文</button>
+                        <button class="seg-btn" data-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="page">
+        <div class="page-head">
+            <h1 id="page-title" title="Click to edit title">My Tier List</h1>
+            <p class="page-sub">Drag images into tiers to rank anything.</p>
+        </div>
 
         <div class="toolbar">
-            <!-- Hidden file input, triggered by +Add Image -->
+            <!-- Hidden file input, triggered by Add Images -->
             <input type="file" id="image-loader" multiple accept="image/*" style="display:none;" />
 
-            <!-- +Add Image dropdown -->
             <div class="toolbar-dropdown" id="add-image-dropdown">
-                <button class="toolbar-dropdown-btn" id="add-image-btn">➕ Add Image ▾</button>
+                <button class="toolbar-dropdown-btn btn-primary" id="add-image-btn" data-icon="image-plus" data-caret>Add Images</button>
                 <div class="toolbar-dropdown-menu" id="add-image-menu">
-                    <button id="add-browse-btn">📁 Browse Files</button>
-                    <button id="paste-clipboard-btn" title="Paste image from clipboard (Ctrl+V)">📋 Paste from Clipboard</button>
-                    <button id="add-url-btn">🔗 Add Image URL</button>
+                    <button id="add-browse-btn" data-icon="folder">Browse Files</button>
+                    <button id="paste-clipboard-btn" data-icon="clipboard" title="Paste image from clipboard (Ctrl+V)">Paste from Clipboard</button>
+                    <button id="add-url-btn" data-icon="link">Add Image URL</button>
                 </div>
             </div>
 
-            <button id="add-tier-btn">➕ Add New Tier</button>
-            <button
-                id="compress-btn"
-                title="Re-encode all images as JPEG to reduce file size"
-            >
-                🗜 Compress Images
-            </button>
-            <button id="settings-open-btn">⚙ Layout & Settings</button>
+            <button id="add-tier-btn" data-icon="list-plus">Add Tier</button>
+            <button id="compress-btn" data-icon="shrink" title="Re-encode all images to reduce file size">Compress Images</button>
+            <button id="settings-open-btn" data-icon="sliders">Settings</button>
+            <div class="toolbar-spacer"></div>
 
-            <!-- Save/Load dropdown -->
             <div class="toolbar-dropdown" id="saveload-dropdown">
-                <button class="toolbar-dropdown-btn" id="saveload-btn">💾 Save/Load ▾</button>
-                <div class="toolbar-dropdown-menu" id="saveload-menu">
-                    <button id="export-json-btn">💾 Export JSON</button>
-                    <button id="import-json-btn">📂 Import JSON</button>
-                    <button id="export-image-btn">🖼 Export Image</button>
+                <button class="toolbar-dropdown-btn" id="saveload-btn" data-icon="download" data-caret>Save / Export</button>
+                <div class="toolbar-dropdown-menu menu-right" id="saveload-menu">
+                    <button id="export-image-btn" data-icon="image">Export Image</button>
+                    <div class="menu-sep"></div>
+                    <button id="export-json-btn" data-icon="braces">Export JSON</button>
+                    <button id="import-json-btn" data-icon="upload">Import JSON</button>
                 </div>
             </div>
         </div>
 
         <!-- Tier Tab Bar -->
-        <div id="tab-bar" style="display:flex; align-items:center; gap:4px; margin-bottom:8px; flex-wrap:wrap;"></div>
+        <div id="tab-bar" class="tab-bar"></div>
 
         <div class="workspace-container" id="workspace">
             <div class="tier-board aspect-mode-inactive" id="tier-board"></div>
 
             <div class="image-bank-container">
-                <h3>
-                    Image Bank
-                    <span
-                        id="bank-count"
-                        style="
-                            font-size: 0.7em;
-                            font-weight: normal;
-                            color: #aaa;
-                        "
-                    ></span>
-                </h3>
-                <div style="margin-bottom: 8px; display: flex; gap: 6px; flex-wrap: wrap;">
-                    <button
-                        id="return-all-btn"
-                        title="Move all images from tiers back to the bank"
-                        style="
-                            font-size: 0.85em;
-                            padding: 6px 10px;
-                            background: --panel-color;
-                        "
-                    >
-                        ⮑ Return All
-                    </button>
-                    <button
-                        id="place-all-btn"
-                        title="Place all bank images into selected tier(s)"
-                        style="
-                            font-size: 0.85em;
-                            padding: 6px 10px;
-                        "
-                    >
-                        ⮐ Place All
-                    </button>
-                    <button
-                        id="shuffle-bank-btn"
-                        title="Randomly reorder the images currently in the bank"
-                        style="
-                            font-size: 0.85em;
-                            padding: 6px 10px;
-                        "
-                    >
-                        🔀 Shuffle Bank
-                    </button>
+                <div class="bank-head">
+                    <h3>Image Bank</h3>
+                    <span id="bank-count"></span>
                 </div>
-                <div
-                    class="image-bank aspect-mode-inactive"
-                    id="image-bank"
-                ></div>
+                <div class="bank-actions">
+                    <button id="return-all-btn" class="btn-sm" data-icon="undo" title="Move all images from tiers back to the bank">Return All</button>
+                    <button id="place-all-btn" class="btn-sm" data-icon="arrow-up" title="Place all bank images into selected tier(s)">Place All</button>
+                    <button id="shuffle-bank-btn" class="btn-sm" data-icon="shuffle" title="Randomly reorder the images currently in the bank">Shuffle</button>
+                </div>
+                <div class="image-bank aspect-mode-inactive" id="image-bank" data-empty="Drop images here, paste with Ctrl+V, or click Add Images."></div>
             </div>
         </div>
+        </main>
+
 
         <!-- Toast notification -->
         <div id="toast-notification"></div>
@@ -751,23 +604,23 @@
         <!-- Import JSON Mode Modal -->
         <div id="import-mode-modal" class="modal-overlay">
             <div class="modal-content" style="width: 320px">
-                <h3>📂 Import JSON</h3>
-                <p style="color: #aaa; font-size: 0.85em; margin: 0 0 12px">
+                <h3>Import JSON</h3>
+                <p style="color: var(--text-2); font-size: 0.85em; margin: 0 0 12px">
                     How would you like to import this JSON file?
                 </p>
                 <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; background: #1a1a1a; padding: 10px; border-radius: 6px; border: 2px solid transparent;" id="import-mode-replace-label">
+                    <label class="choice-card selected" id="import-mode-replace-label">
                         <input type="radio" name="import-mode" value="replace" checked style="margin-top: 3px; flex-shrink: 0;" />
                         <div>
-                            <div style="font-weight: bold;">Replace Current</div>
-                            <div style="font-size: 0.82em; color: #aaa; margin-top: 2px;">Replaces your entire tier list with the imported file.</div>
+                            <div class="choice-title">Replace Current</div>
+                            <div class="choice-desc">Replaces your entire tier list with the imported file.</div>
                         </div>
                     </label>
-                    <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; background: #1a1a1a; padding: 10px; border-radius: 6px; border: 2px solid transparent;" id="import-mode-add-label">
+                    <label class="choice-card" id="import-mode-add-label">
                         <input type="radio" name="import-mode" value="add" style="margin-top: 3px; flex-shrink: 0;" />
                         <div>
-                            <div style="font-weight: bold;">Add to Current</div>
-                            <div style="font-size: 0.82em; color: #aaa; margin-top: 2px;">Merges imported tabs as new tabs alongside your existing tabs. Shared bank images are added to your bank.</div>
+                            <div class="choice-title">Add to Current</div>
+                            <div class="choice-desc">Merges imported tabs as new tabs alongside your existing tabs. Shared bank images are added to your bank.</div>
                         </div>
                     </label>
                 </div>
@@ -781,14 +634,14 @@
         <!-- Image Compression Modal -->
         <div id="compress-modal" class="modal-overlay">
             <div class="modal-content" style="width: 320px">
-                <h3 id="compress-modal-title">🗜 Compress Images</h3>
-                <p style="color: #aaa; font-size: 0.85em; margin: 0 0 12px">
+                <h3 id="compress-modal-title">Compress Images</h3>
+                <p style="color: var(--text-2); font-size: 0.85em; margin: 0 0 12px">
                     Re-encodes images using canvas. GIFs are always skipped.
                     JPEG loses transparency; use PNG to preserve it (larger
                     files).
                 </p>
                 <label>
-                    Format:
+                    Format
                     <select
                         id="compress-format"
                         style="width: 100%; margin-top: 5px"
@@ -805,7 +658,7 @@
                     style="margin-top: 10px; display: none"
                     id="compress-quality-wrap"
                 >
-                    Quality (JPEG only):
+                    Quality (JPEG only)
                     <select
                         id="compress-quality"
                         style="width: 100%; margin-top: 5px"
@@ -830,7 +683,7 @@
                     </select>
                 </label>
                 <label style="margin-top: 10px">
-                    Max dimension (px):
+                    Max dimension (px)
                     <select
                         id="compress-maxdim"
                         style="width: 100%; margin-top: 5px"
@@ -848,7 +701,7 @@
                 </label>
                 <div id="compress-scope-wrap" style="margin-top: 10px">
                     <label>
-                        Apply to:
+                        Apply to
                         <select
                             id="compress-scope"
                             style="width: 100%; margin-top: 5px"
@@ -863,7 +716,7 @@
                 <p
                     id="compress-status"
                     style="
-                        color: #aaa;
+                        color: var(--text-2);
                         font-size: 0.82em;
                         margin: 10px 0 0;
                         min-height: 1.2em;
@@ -881,7 +734,7 @@
         <!-- Global Global Settings App Modular Window -->
         <div id="settings-modal" class="modal-overlay">
             <div class="modal-content" style="width: 320px">
-                <h3>Application Settings</h3>
+                <h3>Settings</h3>
                 <label>
                     Image Aspect Ratio
                     <select
@@ -898,10 +751,8 @@
                         id="settings-layout-mode"
                         style="width: 100%; margin-top: 5px"
                     >
-                        <option value="bottom">Bottom Workspace Bank</option>
-                        <option value="sidebar" selected>
-                            Right Sidebar Workspace Bank
-                        </option>
+                        <option value="bottom">Bottom</option>
+                        <option value="sidebar" selected>Right Sidebar</option>
                     </select>
                 </label>
                 <label style="margin-top: 10px">
@@ -913,7 +764,7 @@
                         <option value="preview">
                             Semi-Transparent Image Preview
                         </option>
-                        <option value="bar">Blue Bar</option>
+                        <option value="bar">Indicator Bar</option>
                     </select>
                 </label>
                 <label style="margin-top: 10px">
@@ -941,7 +792,7 @@
                     style="justify-content: flex-end; margin-top: 15px"
                 >
                     <button id="settings-close-btn" class="btn-info">
-                        Close Settings
+                        Done
                     </button>
                 </div>
             </div>
@@ -952,14 +803,14 @@
                 <h3>Tier Settings</h3>
                 <p
                     id="modal-tier-count"
-                    style="color: #aaa; font-size: 0.85em; margin: 0 0 10px"
+                    style="color: var(--text-2); font-size: 0.85em; margin: 0 0 10px"
                 ></p>
                 <label>
-                    Label Text:
+                    Label Text
                     <input type="text" id="modal-tier-name" />
                 </label>
                 <label>
-                    Label Color:
+                    Label Color
                     <input type="color" id="modal-tier-color" />
                 </label>
                 <div class="modal-actions">
@@ -967,7 +818,7 @@
                         Delete Tier
                     </button>
                     <button id="modal-cancel-btn">Cancel</button>
-                    <button id="modal-close-btn">Save & Close</button>
+                    <button id="modal-close-btn" class="btn-info">Save</button>
                 </div>
             </div>
         </div>
@@ -977,7 +828,7 @@
             <div class="modal-content" style="width: 300px">
                 <h3>Export Tier List as Image</h3>
                 <label>
-                    Format:
+                    Format
                     <select
                         id="export-image-format"
                         style="width: 100%; margin-top: 5px"
@@ -987,7 +838,7 @@
                     </select>
                 </label>
                 <label id="export-jpeg-quality-wrap" style="margin-top: 10px; display: none;">
-                    JPEG Quality:
+                    JPEG Quality
                     <select
                         id="export-image-jpeg-quality"
                         style="width: 100%; margin-top: 5px"
@@ -1000,7 +851,7 @@
                     </select>
                 </label>
                 <label style="margin-top: 10px;">
-                    Resolution Scale:
+                    Resolution Scale
                     <select
                         id="export-image-quality"
                         style="width: 100%; margin-top: 5px"
@@ -1013,7 +864,7 @@
                         <option value="24">Insane (24x)</option>
                     </select>
                 </label>
-                <p style="color: #aaa; font-size: 0.85em; margin: 6px 0 0">
+                <p style="color: var(--text-2); font-size: 0.85em; margin: 6px 0 0">
                     Resolution scales dynamically with the list size. High scale
                     factors require significant browser memory allocation.
                 </p>
@@ -1029,14 +880,14 @@
         <!-- Place All Modal -->
         <div id="place-all-modal" class="modal-overlay">
             <div class="modal-content" style="width: 320px">
-                <h3>⮐ Place All Bank Images</h3>
-                <p style="color: #aaa; font-size: 0.85em; margin: 0 0 12px">
+                <h3>Place All Bank Images</h3>
+                <p style="color: var(--text-2); font-size: 0.85em; margin: 0 0 12px">
                     Select one or more tiers. If multiple are selected, bank images will be randomly distributed among them.
                 </p>
                 <div style="margin-bottom: 6px;">
-                    <button id="place-all-select-all-btn" style="font-size:0.82em; padding:4px 10px; background:#3a3a3a;">☑ Select All Tiers</button>
+                    <button id="place-all-select-all-btn" class="btn-sm" data-icon="check-all">Select All Tiers</button>
                 </div>
-                <div id="place-all-tier-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 260px; overflow-y: auto; background: #1a1a1a; padding: 8px; border-radius: 4px; border: 1px solid #444;"></div>
+                <div id="place-all-tier-list" class="tier-check-list"></div>
                 <div class="modal-actions" style="margin-top: 14px;">
                     <button id="place-all-cancel-btn">Cancel</button>
                     <button id="place-all-confirm-btn" class="btn-info">Place All</button>
@@ -1078,11 +929,11 @@
 
         <div id="item-modal" class="modal-overlay">
             <div class="modal-content" style="gap: 8px;">
-                <h3 style="display:flex; align-items:center; justify-content:space-between; margin:0 0 2px;">
+                <h3 class="item-head">
                     <span>Image Settings</span>
-                    <div style="display:flex; gap:6px; align-items:center;">
-                        <button id="modal-item-adjust-crop-btn" title="Adjust square crop position and zoom" style="font-size:0.78em; padding:4px 10px; background:#3a5a3a; display:none; white-space:nowrap;">Adjust Crop</button>
-                        <button id="modal-item-compress-btn" title="Re-encode this image to reduce file size" style="font-size:0.78em; padding:4px 10px; background:#5a4a1a; white-space:nowrap;">Compress</button>
+                    <div class="item-head-actions">
+                        <button id="modal-item-adjust-crop-btn" class="btn-sm" data-icon="crop" title="Adjust square crop position and zoom" style="display:none;">Crop</button>
+                        <button id="modal-item-compress-btn" class="btn-sm" data-icon="shrink" title="Re-encode this image to reduce file size">Compress</button>
                     </div>
                 </h3>
                 <img
@@ -1095,7 +946,7 @@
                     id="modal-item-filename-wrap"
                     style="
                         font-size: 0.8em;
-                        color: #aaa;
+                        color: var(--text-2);
                         text-align: center;
                         word-break: break-all;
                         padding: 0;
@@ -1111,8 +962,8 @@
                             width: 100%;
                             background: transparent;
                             border: none;
-                            border-bottom: 1px dashed #555;
-                            color: #aaa;
+                            border-bottom: 1px dashed var(--border-strong);
+                            color: var(--text-2);
                             font-size: 1em;
                             font-family: sans-serif;
                             text-align: center;
@@ -1127,7 +978,7 @@
                     id="modal-item-filesize"
                     style="
                         font-size: 0.75em;
-                        color: #777;
+                        color: var(--text-3);
                         text-align: center;
                         margin-top: -4px;
                         padding: 0;
@@ -1150,13 +1001,13 @@
                     </button>
                     <button
                         id="modal-item-view-btn"
-                        class="btn-info"
+                        data-icon="external"
                         title="Open full scale asset in a new tab"
                     >
                         View Image
                     </button>
                     <button id="modal-item-cancel-btn">Cancel</button>
-                    <button id="modal-item-save-btn">Save Changes</button>
+                    <button id="modal-item-save-btn" class="btn-info">Save Changes</button>
                 </div>
             </div>
         </div>
@@ -1165,16 +1016,398 @@
         <div id="tab-ctx-modal" class="modal-overlay">
             <div class="modal-content" style="width:280px;">
                 <h3 id="tab-ctx-title">Tab Options</h3>
-                <div style="display:flex; flex-direction:column; gap:8px;">
-                    <button id="tab-ctx-rename-btn">✏️ Rename Tab</button>
-                    <button id="tab-ctx-duplicate-btn">📋 Duplicate Tab</button>
-                    <button id="tab-ctx-delete-btn" class="btn-danger">🗑 Delete Tab</button>
-                    <button id="tab-ctx-cancel-btn" style="margin-top:4px;">Cancel</button>
+                <div class="stack-actions">
+                    <button id="tab-ctx-rename-btn" data-icon="pencil">Rename Tab</button>
+                    <button id="tab-ctx-duplicate-btn" data-icon="copy">Duplicate Tab</button>
+                    <button id="tab-ctx-delete-btn" class="btn-danger" data-icon="trash">Delete Tab</button>
+                    <button id="tab-ctx-cancel-btn" class="btn-ghost" style="justify-content:center;">Cancel</button>
                 </div>
             </div>
         </div>
 
         <script>
+            /* ============================================================
+               Biaobang — i18n (中文 / English), icons and theme
+               English strings in the markup/code are the keys.
+               ============================================================ */
+            const I18N_ZH = {
+                // App chrome
+                "Biaobang": "飙榜",
+                "Bilingual": "双语版",
+                "Click to edit title": "点击编辑标题",
+                "Drag images into tiers to rank anything.": "把图片拖进梯队，给任何东西排个名次。",
+                "Language": "语言",
+                "Toggle theme": "切换深色 / 浅色",
+                "My Tier List": "我的排行榜",
+                "Add Images": "添加图片",
+                "Browse Files": "浏览文件",
+                "Paste from Clipboard": "从剪贴板粘贴",
+                "Paste image from clipboard (Ctrl+V)": "从剪贴板粘贴图片（Ctrl+V）",
+                "Add Image URL": "添加图片链接",
+                "Add Tier": "添加梯队",
+                "Compress Images": "压缩图片",
+                "Compress Image": "压缩图片",
+                "Re-encode all images to reduce file size": "重新编码所有图片以减小文件体积",
+                "Settings": "设置",
+                "Save / Export": "保存 / 导出",
+                "Export JSON": "导出 JSON 存档",
+                "Import JSON": "导入 JSON 存档",
+                "Export Image": "导出图片",
+                // Bank
+                "Image Bank": "图片库",
+                "Move all images from tiers back to the bank": "把梯队中的所有图片移回图片库",
+                "Return All": "全部收回",
+                "Place all bank images into selected tier(s)": "把图片库中的图片放入所选梯队",
+                "Place All": "全部放入",
+                "Randomly reorder the images currently in the bank": "随机打乱图片库中的图片顺序",
+                "Shuffle": "打乱",
+                "Drop images here, paste with Ctrl+V, or click Add Images.": "把图片拖到这里、按 Ctrl+V 粘贴，或点击「添加图片」。",
+                // Loading
+                "Processing...": "处理中…",
+                "Click anywhere to dismiss": "点击任意位置关闭",
+                "Zoom Preview": "放大预览",
+                // Import modal
+                "How would you like to import this JSON file?": "要如何导入这个 JSON 文件？",
+                "Replace Current": "替换当前内容",
+                "Replaces your entire tier list with the imported file.": "用导入的文件替换整个排行榜。",
+                "Add to Current": "添加到当前内容",
+                "Merges imported tabs as new tabs alongside your existing tabs. Shared bank images are added to your bank.": "把导入的标签页作为新标签页并入现有内容，图片会加入图片库。",
+                "Cancel": "取消",
+                "Choose File": "选择文件",
+                // Compress modal
+                "Re-encodes images using canvas. GIFs are always skipped. JPEG loses transparency; use PNG to preserve it (larger files).": "使用 Canvas 重新编码图片，GIF 会被跳过。JPEG 会丢失透明度；需要保留透明请选 PNG（文件更大）。",
+                "Format": "格式",
+                "JPEG — smaller, no transparency": "JPEG — 更小，不含透明",
+                "PNG — lossless, keeps transparency": "PNG — 无损，保留透明",
+                "Quality (JPEG only)": "质量（仅 JPEG）",
+                "Deep Fried (0.1) — extreme artifact": "油炸级 (0.1) — 极度失真",
+                "Very Low (0.25) — heavy compression": "很低 (0.25) — 重度压缩",
+                "Low (0.5) — noticeable loss": "低 (0.5) — 明显损失",
+                "Medium (0.7) — recommended": "中 (0.7) — 推荐",
+                "High (0.85) — good balance": "高 (0.85) — 均衡",
+                "Very High (0.95) — near-lossless": "很高 (0.95) — 近乎无损",
+                "Maximum (1.0) — true lossless JPEG": "最高 (1.0) — 最佳 JPEG",
+                "Max dimension (px)": "最大边长（像素）",
+                "No limit — keep original resolution": "不限制 — 保持原始分辨率",
+                "Apply to": "应用范围",
+                "All images (bank + tiers)": "全部图片（图片库 + 梯队）",
+                "Bank only": "仅图片库",
+                "Compress": "压缩",
+                // Settings modal
+                "Image Aspect Ratio": "图片比例",
+                "Force Square (Crop)": "强制正方形（裁切）",
+                "Keep Aspect Ratio": "保持原始比例",
+                "Image Bank Layout": "图片库位置",
+                "Bottom": "底部",
+                "Right Sidebar": "右侧边栏",
+                "Drag & Drop Preview": "拖放预览",
+                "Semi-Transparent Image Preview": "半透明图片预览",
+                "Indicator Bar": "插入指示条",
+                "Hover: Show Rank Number": "悬停时显示名次",
+                "Hover: Show Filename": "悬停时显示文件名",
+                "Enabled": "开启",
+                "Disabled": "关闭",
+                "Done": "完成",
+                // Tier modal
+                "Tier Settings": "梯队设置",
+                "Label Text": "标签文字",
+                "Label Color": "标签颜色",
+                "Delete Tier": "删除梯队",
+                "Save": "保存",
+                // Export modal
+                "Export Tier List as Image": "导出排行榜图片",
+                "PNG — lossless, larger file": "PNG — 无损，文件较大",
+                "JPEG — smaller file, no transparency": "JPEG — 文件较小，不含透明",
+                "JPEG Quality": "JPEG 质量",
+                "Resolution Scale": "分辨率倍数",
+                "Very Low (1x)": "很低 (1x)",
+                "Low (1.5x)": "低 (1.5x)",
+                "High (3x)": "高 (3x)",
+                "Very High (6x)": "很高 (6x)",
+                "Extreme (12x)": "极高 (12x)",
+                "Insane (24x)": "疯狂 (24x)",
+                "Resolution scales dynamically with the list size. High scale factors require significant browser memory allocation.": "分辨率会随排行榜尺寸变化，倍数越高越占用浏览器内存。",
+                "Download": "下载",
+                // Place all modal
+                "Place All Bank Images": "放入全部图片",
+                "Select one or more tiers. If multiple are selected, bank images will be randomly distributed among them.": "选择一个或多个梯队；多选时，图片会随机分配到这些梯队中。",
+                "Select All Tiers": "全选梯队",
+                // Crop modal
+                "Adjust Crop": "调整裁切",
+                "Offset X": "水平偏移",
+                "Offset Y": "垂直偏移",
+                "Zoom": "缩放",
+                "Reset": "重置",
+                "Apply": "应用",
+                // Item modal
+                "Image Settings": "图片设置",
+                "Adjust square crop position and zoom": "调整正方形裁切的位置和缩放",
+                "Re-encode this image to reduce file size": "重新编码此图片以减小体积",
+                "Crop": "裁切",
+                "Preview": "预览",
+                "(no filename)": "（无文件名）",
+                "Click to edit filename": "点击编辑文件名",
+                "Type an item description here...": "在这里输入描述…",
+                "Permanently delete item": "永久删除此项",
+                "Delete": "删除",
+                "Open full scale asset in a new tab": "在新标签页中查看原图",
+                "View Image": "查看原图",
+                "Save Changes": "保存更改",
+                // Tab context modal
+                "Tab Options": "标签页选项",
+                "Rename Tab": "重命名标签页",
+                "Duplicate Tab": "复制标签页",
+                "Delete Tab": "删除标签页",
+                "Tab: ": "标签页：",
+                "New Tab": "新建标签页",
+                "Click to switch • Right-click for options • Drag to reorder": "单击切换 • 右键查看选项 • 拖动排序",
+                "Move up": "上移",
+                "Move down": "下移",
+                // Runtime messages
+                "No tier rows to export.": "没有可导出的梯队。",
+                "The resolution requested exceeds browser canvas technical limits. Try a lower quality multiplier option.": "请求的分辨率超出浏览器画布上限，请选择更低的倍数。",
+                "Failed to export image asset string data. The list may contain mixed-origin web URL objects.": "导出图片失败：列表中可能包含跨域的网络图片。",
+                "Rendering tier list image...": "正在渲染排行榜图片…",
+                "Transferring files, please wait...": "正在传输文件，请稍候…",
+                "Waiting for file selection...": "等待选择文件…",
+                "Image pasted from clipboard.": "已从剪贴板粘贴图片。",
+                "No image found in clipboard.": "剪贴板中没有图片。",
+                "Clipboard access denied or no image available.": "无法访问剪贴板，或没有可用的图片。",
+                "Enter image URL:": "输入图片链接：",
+                "Fetching target asset URL data...": "正在获取图片…",
+                "Failed to resolve image data asset.": "无法加载该图片。",
+                "Preparing export...": "正在准备导出…",
+                "Opening save dialog...": "正在打开保存对话框…",
+                "Failed to serialize state to JSON.": "无法生成 JSON 文件。",
+                "File explorer opening — save your tier-list.json": "正在打开保存窗口 — 请保存 tier-list.json",
+                "Parsing layout document...": "正在解析文件…",
+                "Invalid JSON format structure.": "JSON 文件格式无效。",
+                "Error reading JSON file formatting.": "读取 JSON 文件时出错。",
+                "Are you absolutely sure you want to delete this tier row? Images inside will return to your bank pool.": "确定要删除这个梯队吗？其中的图片会回到图片库。",
+                "Are you sure you want to permanently delete this item asset element?": "确定要永久删除这张图片吗？",
+                "Popup blocked!": "弹出窗口被浏览器拦截了！",
+                "View Tier List Asset Element": "查看图片",
+                "No images are currently placed in any tier.": "目前没有任何图片放在梯队中。",
+                "Need at least 2 images in the bank to shuffle.": "图片库中至少需要 2 张图片才能打乱。",
+                "The bank is empty — nothing to place.": "图片库是空的，没有可放入的图片。",
+                "No tiers exist to place images into.": "没有可以放入的梯队。",
+                "Select at least one tier.": "请至少选择一个梯队。",
+                "Collecting images…": "正在收集图片…",
+                "No compressible images found (GIFs skipped).": "没有可压缩的图片（已跳过 GIF）。",
+                "1 item in this tier": "此梯队中有 1 项",
+                "Rename tab:": "重命名标签页：",
+                "(Unnamed)": "（未命名）",
+                "New Tier": "新梯队",
+                " (copy)": "（副本）",
+                "You have unsaved changes on your tier list. Are you sure you want to leave?": "排行榜有未保存的更改，确定要离开吗？",
+            };
+
+            // Parameterised runtime messages: [regex, Chinese replacement]
+            const I18N_ZH_PATTERNS = [
+                [/^Reading images\.\.\. \((\d+)\/(\d+)\)$/, "正在读取图片…（$1/$2）"],
+                [/^(\d+) file\(s\) rejected — not valid image formats\.$/, "$1 个文件被拒绝 — 不是有效的图片格式。"],
+                [/^(\d+) image\(s\) added\. (\d+) file\(s\) skipped \(not valid image formats\)\.$/, "已添加 $1 张图片，跳过 $2 个无效文件。"],
+                [/^(\d+) image\(s\) added from drag & drop\.$/, "已通过拖放添加 $1 张图片。"],
+                [/^Added (\d+) tab\(s\) and (\d+) bank image\(s\)\.$/, "已添加 $1 个标签页和 $2 张图片。"],
+                [/^Return all (\d+) image\(s\) from tiers back to the bank\?$/, "把梯队中的 $1 张图片全部收回图片库？"],
+                [/^(\d+) image\(s\) returned to the bank\.$/, "已收回 $1 张图片。"],
+                [/^Shuffled (\d+) bank image\(s\)\.$/, "已打乱 $1 张图片。"],
+                [/^Placed (\d+) image\(s\) into (\d+) tier\(s\)\.$/, "已把 $1 张图片放入 $2 个梯队。"],
+                [/^Compressing… \((\d+)\/(\d+)\)$/, "正在压缩…（$1/$2）"],
+                [/^Compressed (\d+) image\(s\) — saved ~([\d.\-]+) KB \((\d+) already smallest, kept original\)\.$/, "已压缩 $1 张图片，节省约 $2 KB（$3 张已是最小，保留原图）。"],
+                [/^Compressed (\d+) image\(s\) — saved ~([\d.\-]+) KB\.$/, "已压缩 $1 张图片，节省约 $2 KB。"],
+                [/^(\d+) items in this tier$/, "此梯队中有 $1 项"],
+                [/^\((\d+) in bank, (\d+) in list\) · (.*)$/, "图片库 $1 · 已排 $2 · $3"],
+                [/^Delete tab "([\s\S]*)"\? Its tiered images will be returned to the bank\.$/, "删除标签页「$1」？其中已排的图片会回到图片库。"],
+                [/^Tab (\d+)$/, "标签页 $1"],
+            ];
+
+            const DEFAULT_TITLES = ["Tier List Maker", "My Tier List", "我的排行榜"];
+            let currentLang = "zh";
+
+            function tr(str) {
+                if (str == null) return str;
+                const s = String(str);
+                if (currentLang !== "zh") return s;
+                if (Object.prototype.hasOwnProperty.call(I18N_ZH, s)) return I18N_ZH[s];
+                const trimmed = s.replace(/\s+/g, " ").trim();
+                if (Object.prototype.hasOwnProperty.call(I18N_ZH, trimmed)) return I18N_ZH[trimmed];
+                for (const [re, rep] of I18N_ZH_PATTERNS) {
+                    if (re.test(trimmed)) return trimmed.replace(re, rep);
+                }
+                return s;
+            }
+
+            // Native dialogs go through the translator too.
+            (function () {
+                const _alert = window.alert.bind(window);
+                const _confirm = window.confirm.bind(window);
+                const _prompt = window.prompt.bind(window);
+                window.alert = (m) => _alert(tr(m));
+                window.confirm = (m) => _confirm(tr(m));
+                window.prompt = (m, d) => _prompt(tr(m), d);
+            })();
+
+            // Containers whose text is user content or set at runtime by code.
+            const I18N_SKIP = "#tier-board, #image-bank, #tab-bar, #page-title, #place-all-tier-list, #global-zoom-portal, #toast-notification, #loading-text, #modal-tier-count, #bank-count, #compress-status, #tab-ctx-title, #compress-modal-title, script, style, svg, .no-i18n";
+            const _i18nOrig = new WeakMap();
+            const I18N_ATTRS = ["title", "placeholder", "alt", "aria-label", "data-empty"];
+
+            function translateStatic(root) {
+                const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                    acceptNode(node) {
+                        if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                        const p = node.parentElement;
+                        if (!p || p.closest(I18N_SKIP)) return NodeFilter.FILTER_REJECT;
+                        return NodeFilter.FILTER_ACCEPT;
+                    },
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach((node) => {
+                    if (!_i18nOrig.has(node)) _i18nOrig.set(node, node.nodeValue);
+                    const orig = _i18nOrig.get(node);
+                    const lead = orig.match(/^\s*/)[0];
+                    const tail = orig.match(/\s*$/)[0];
+                    const translated = tr(orig.trim());
+                    node.nodeValue = lead + translated + tail;
+                });
+                root.querySelectorAll("*").forEach((el) => {
+                    if (el.closest("#tier-board, #tab-bar, #place-all-tier-list, svg, script, style")) return;
+                    I18N_ATTRS.forEach((attr) => {
+                        const key = "i18n" + attr.replace(/(^|-)([a-z])/g, (m, a, c) => c.toUpperCase());
+                        if (el.dataset[key] == null) {
+                            if (!el.hasAttribute(attr)) return;
+                            el.dataset[key] = el.getAttribute(attr);
+                        }
+                        el.setAttribute(attr, tr(el.dataset[key]));
+                    });
+                });
+            }
+
+            function displayTabName(name) {
+                return /^Tab \d+$/.test(name || "") ? tr(name) : name;
+            }
+
+            function applyTitleLanguage() {
+                const h1 = document.getElementById("page-title");
+                if (!h1) return;
+                if (!state.title || DEFAULT_TITLES.includes(state.title)) {
+                    state.title = tr("My Tier List");
+                    h1.innerText = state.title;
+                }
+                document.title = state.title + " · " + tr("Biaobang");
+            }
+
+            function applyLanguage(lang, opts = {}) {
+                currentLang = lang === "en" ? "en" : "zh";
+                document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
+                if (!opts.skipPersist) {
+                    try { localStorage.setItem("biaobang.lang", currentLang); } catch (e) {}
+                }
+                document.querySelectorAll(".seg-btn[data-lang]").forEach((b) => {
+                    b.setAttribute("aria-pressed", String(b.dataset.lang === currentLang));
+                });
+                translateStatic(document.body);
+                applyTitleLanguage();
+                if (typeof renderTabs === "function" && document.getElementById("tab-bar")) {
+                    renderTabs();
+                    updateBankCount();
+                    document.querySelectorAll("#tier-board .handle-btn").forEach((b, i) => {
+                        b.title = tr(i % 2 === 0 ? "Move up" : "Move down");
+                    });
+                }
+            }
+
+            function detectLanguage() {
+                try {
+                    const saved = localStorage.getItem("biaobang.lang");
+                    if (saved === "zh" || saved === "en") return saved;
+                } catch (e) {}
+                const nav = (navigator.language || "zh").toLowerCase();
+                return nav.startsWith("zh") ? "zh" : "en";
+            }
+            currentLang = detectLanguage();
+
+            // ---------- Icons (Lucide-style, ISC) ----------
+            const ICONS = {
+                "image-plus": '<path d="M16 5h6M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/><circle cx="9" cy="9" r="2"/>',
+                "image": '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/>',
+                "folder": '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>',
+                "clipboard": '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>',
+                "link": '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+                "list-plus": '<path d="M11 12H3M16 6H3M16 18H3M18 9v6M21 12h-6"/>',
+                "shrink": '<path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8M9 19.8V15m0 0H4.2M9 15l-6 6M15 4.2V9m0 0h4.8M15 9l6-6M9 4.2V9m0 0H4.2M9 9 3 3"/>',
+                "sliders": '<path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/>',
+                "download": '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/>',
+                "upload": '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/>',
+                "braces": '<path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/>',
+                "chevron-down": '<path d="m6 9 6 6 6-6"/>',
+                "chevron-up": '<path d="m18 15-6-6-6 6"/>',
+                "undo": '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+                "arrow-up": '<path d="m18 9-6-6-6 6M12 3v14M5 21h14"/>',
+                "shuffle": '<path d="m18 14 4 4-4 4M18 2l4 4-4 4"/><path d="M2 18h1.97a4 4 0 0 0 3.3-1.7l5.45-7.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.97a4 4 0 0 1 3.6 2.2M22 18h-6.04a4 4 0 0 1-3.3-1.8l-.36-.45"/>',
+                "sun": '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+                "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+                "pencil": '<path d="M21.17 6.81a1 1 0 0 0-3.99-3.99L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5z"/>',
+                "copy": '<rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+                "trash": '<path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+                "crop": '<path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/>',
+                "external": '<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+                "check-all": '<path d="M18 6 7 17l-5-5M22 10l-7.5 7.5L13 16"/>',
+                "plus": '<path d="M5 12h14M12 5v14"/>',
+            };
+            function iconSvg(name, cls) {
+                return '<svg class="icon' + (cls ? " " + cls : "") + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || "") + "</svg>";
+            }
+            function hydrateIcons(root) {
+                (root || document).querySelectorAll("[data-icon]").forEach((el) => {
+                    if (el.querySelector(":scope > svg.icon")) return;
+                    el.insertAdjacentHTML("afterbegin", iconSvg(el.dataset.icon));
+                });
+                (root || document).querySelectorAll("[data-caret]").forEach((el) => {
+                    if (el.querySelector(":scope > svg.caret")) return;
+                    el.insertAdjacentHTML("beforeend", iconSvg("chevron-down", "caret"));
+                });
+            }
+
+            // ---------- Theme ----------
+            function currentTheme() {
+                return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+            }
+            function applyTheme(theme, persist) {
+                document.documentElement.setAttribute("data-theme", theme);
+                const btn = document.getElementById("theme-toggle");
+                if (btn) btn.innerHTML = iconSvg(theme === "dark" ? "sun" : "moon");
+                if (persist) {
+                    try { localStorage.setItem("biaobang.theme", theme); } catch (e) {}
+                }
+            }
+
+            function setupChrome() {
+                hydrateIcons(document);
+                applyTheme(currentTheme(), false);
+                document.getElementById("theme-toggle").addEventListener("click", () => {
+                    applyTheme(currentTheme() === "dark" ? "light" : "dark", true);
+                });
+                document.querySelectorAll(".seg-btn[data-lang]").forEach((b) => {
+                    b.addEventListener("click", () => applyLanguage(b.dataset.lang));
+                });
+                try {
+                    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+                    mq.addEventListener("change", (e) => {
+                        let saved = null;
+                        try { saved = localStorage.getItem("biaobang.theme"); } catch (err) {}
+                        if (!saved) applyTheme(e.matches ? "dark" : "light", false);
+                    });
+                } catch (e) {}
+            }
+
+            function cssVar(name, fallback) {
+                const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+                return v || fallback;
+            }
+
             let state = {
                 settings: {
                     aspectRatio: "square",
@@ -1428,6 +1661,8 @@
                 applyLayoutMode(state.settings.layout);
                 updateGlobalAspectClass();
                 setupTitleEdit(document.getElementById("page-title"));
+                setupChrome();
+                applyLanguage(currentLang, { skipPersist: true });
             });
 
             function markUnsaved() {
@@ -1440,14 +1675,14 @@
             window.addEventListener("beforeunload", (e) => {
                 if (hasUnsavedChanges) {
                     e.preventDefault();
-                    e.returnValue =
-                        "You have unsaved changes on your tier list. Are you sure you want to leave?";
+                    e.returnValue = tr(
+                        "You have unsaved changes on your tier list. Are you sure you want to leave?");
                 }
             });
 
             function showLoading(msg) {
                 document.getElementById("loading-text").innerText =
-                    msg || "Processing...";
+                    tr(msg || "Processing...");
                 document
                     .getElementById("loading-indicator")
                     .classList.add("active");
@@ -1461,7 +1696,7 @@
 
             function showToast(msg, duration = 4000) {
                 const toast = document.getElementById("toast-notification");
-                toast.textContent = msg;
+                toast.textContent = tr(msg);
                 toast.classList.add("visible");
                 clearTimeout(toast._hideTimer);
                 toast._hideTimer = setTimeout(() => {
@@ -1563,10 +1798,9 @@
                     const input = document.createElement("input");
                     input.type = "text";
                     input.value = current;
-                    input.style.cssText =
-                        "font-size:inherit; font-weight:inherit; font-family:inherit; background:#333; color:#fff; border:2px solid #4af; border-radius:4px; padding:2px 8px; width:" +
-                        Math.max(220, current.length * 16 + 40) +
-                        "px;";
+                    input.className = "title-input";
+                    input.style.width =
+                        Math.max(260, current.length * 22 + 40) + "px";
                     h1El.replaceWith(input);
                     input.focus();
                     input.select();
@@ -1575,16 +1809,15 @@
                         if (committed) return;
                         committed = true;
                         const newTitle =
-                            input.value.trim() || "Tier List Maker";
+                            input.value.trim() || tr("My Tier List");
                         const newH1 = document.createElement("h1");
                         newH1.id = "page-title";
-                        newH1.title = "Click to edit title";
-                        newH1.style.cssText =
-                            "cursor:pointer; display:inline-block;";
+                        newH1.title = tr("Click to edit title");
+                        
                         newH1.innerText = newTitle;
                         input.replaceWith(newH1);
-                        document.title = newTitle;
                         state.title = newTitle;
+                        document.title = newTitle + " · " + tr("Biaobang");
                         setupTitleEdit(newH1);
                         markUnsaved();
                     };
@@ -1660,7 +1893,9 @@
                 const ctx = canvas.getContext("2d");
                 ctx.scale(scale, scale);
 
-                ctx.fillStyle = "#111";
+                const ROW_BG = cssVar("--row-bg", "#111");
+                const ROW_BORDER = cssVar("--border", "#333");
+                ctx.fillStyle = ROW_BG;
                 ctx.fillRect(0, 0, W, H);
 
                 const rowPromises = [];
@@ -1671,10 +1906,10 @@
                     const rw = W;
                     const rh = rRect.height;
 
-                    ctx.fillStyle = "#111";
+                    ctx.fillStyle = ROW_BG;
                     ctx.fillRect(0, ry, rw, rh);
 
-                    ctx.strokeStyle = "#333";
+                    ctx.strokeStyle = ROW_BORDER;
                     ctx.lineWidth = 1;
                     ctx.strokeRect(0.5, ry + 0.5, rw - 1, rh - 1);
 
@@ -1690,9 +1925,9 @@
                         const labelText = span
                             ? span.innerText
                             : label.innerText;
-                        ctx.fillStyle = "#000";
-                        const LABEL_FONT_SIZE = 16;
-                        ctx.font = `bold ${LABEL_FONT_SIZE}px sans-serif`;
+                        ctx.fillStyle = "#111";
+                        const LABEL_FONT_SIZE = 18;
+                        ctx.font = `700 ${LABEL_FONT_SIZE}px ${getComputedStyle(document.body).fontFamily}`;
                         ctx.textAlign = "center";
                         ctx.textBaseline = "middle";
                         const maxW = lRect.width - 12;
@@ -1956,7 +2191,7 @@
                     loadingEl.classList.remove("active");
                     loadingEl.classList.add("standby");
                     document.getElementById("loading-text").textContent =
-                        "Transferring files, please wait...";
+                        tr("Transferring files, please wait...");
                 }
 
                 function exitStandby() {
@@ -1978,7 +2213,7 @@
                     // trigger enterStandby() is unreliable on mobile browsers.
                     enterStandby();
                     document.getElementById("loading-text").textContent =
-                        "Waiting for file selection...";
+                        tr("Waiting for file selection...");
                 });
 
                 document
@@ -2239,7 +2474,7 @@
                         const newId = "t_" + Date.now();
                         getCurrentTab().tiers.push({
                             id: newId,
-                            name: "New Tier",
+                            name: tr("New Tier"),
                             color: "#a0a0a0",
                             images: [],
                         });
@@ -2312,10 +2547,8 @@
                 // Highlight selected radio label
                 function updateImportModeHighlight() {
                     const val = document.querySelector('input[name="import-mode"]:checked')?.value;
-                    document.getElementById("import-mode-replace-label").style.border =
-                        val === "replace" ? "2px solid #4af" : "2px solid transparent";
-                    document.getElementById("import-mode-add-label").style.border =
-                        val === "add" ? "2px solid #4af" : "2px solid transparent";
+                    document.getElementById("import-mode-replace-label").classList.toggle("selected", val === "replace");
+                    document.getElementById("import-mode-add-label").classList.toggle("selected", val === "add");
                 }
                 document.querySelectorAll('input[name="import-mode"]').forEach((radio) => {
                     radio.addEventListener("change", updateImportModeHighlight);
@@ -2458,7 +2691,7 @@
                                             const restoredTitle = state.title || "Tier List Maker";
                                             const titleEl = document.getElementById("page-title");
                                             if (titleEl) titleEl.innerText = restoredTitle;
-                                            document.title = restoredTitle;
+                                            applyTitleLanguage();
 
                                             for (const k of Object.keys(imageRegistry)) {
                                                 const src = imageRegistry[k];
@@ -2652,7 +2885,7 @@
                                     newTab.document.body.style.background =
                                         "#1a1a1a";
                                     newTab.document.title =
-                                        "View Tier List Asset Element";
+                                        tr("View Tier List Asset Element");
                                     newTab.document.close();
                                 } else {
                                     alert("Popup blocked!");
@@ -2751,7 +2984,7 @@
                         listEl.innerHTML = "";
                         state.tiers.forEach((tier) => {
                             const label = document.createElement("label");
-                            label.style.cssText = "display:flex; align-items:center; gap:8px; cursor:pointer; padding:6px 8px; border-radius:4px; background:#2a2a2a;";
+                            label.className = "tier-check";
                             const cb = document.createElement("input");
                             cb.type = "checkbox";
                             cb.value = tier.id;
@@ -2759,7 +2992,7 @@
                             const swatch = document.createElement("span");
                             swatch.style.cssText = `display:inline-block; width:14px; height:14px; border-radius:3px; background:${tier.color}; flex-shrink:0;`;
                             const name = document.createElement("span");
-                            name.textContent = tier.name || "(Unnamed)";
+                            name.textContent = tier.name || tr("(Unnamed)");
                             label.appendChild(cb);
                             label.appendChild(swatch);
                             label.appendChild(name);
@@ -2823,10 +3056,10 @@
                     const title = document.getElementById("compress-modal-title");
                     if (_compressSingleKey) {
                         scopeWrap.style.display = "none";
-                        title.textContent = "🗜 Compress Image";
+                        title.textContent = tr("Compress Image");
                     } else {
                         scopeWrap.style.display = "";
-                        title.textContent = "🗜 Compress Images";
+                        title.textContent = tr("Compress Images");
                     }
                     document.getElementById("compress-modal").classList.add("active");
                 }
@@ -2875,7 +3108,7 @@
                             document.getElementById("compress-status");
 
                         document.getElementById("compress-confirm-btn").disabled = true;
-                        statusEl.textContent = "Collecting images…";
+                        statusEl.textContent = tr("Collecting images…");
 
                         // Build list of keys to process
                         let toProcess;
@@ -2896,7 +3129,7 @@
                         });
 
                         if (toProcess.length === 0) {
-                            statusEl.textContent = "No compressible images found (GIFs skipped).";
+                            statusEl.textContent = tr("No compressible images found (GIFs skipped).");
                             document.getElementById("compress-confirm-btn").disabled = false;
                             return;
                         }
@@ -2988,10 +3221,10 @@
                     ? row.querySelectorAll(".tier-item-wrap").length
                     : tier.images.length;
                 const countEl = document.getElementById("modal-tier-count");
-                countEl.textContent =
+                countEl.textContent = tr(
                     count === 1
                         ? "1 item in this tier"
-                        : `${count} items in this tier`;
+                        : `${count} items in this tier`);
                 document.getElementById("tier-modal").classList.add("active");
             }
 
@@ -3252,7 +3485,7 @@
                 state.tabs.forEach(tab => {
                     const btn = document.createElement("button");
                     btn.className = "tier-tab" + (tab.id === state.activeTabId ? " active-tab" : "");
-                    btn.textContent = tab.name;
+                    btn.textContent = displayTabName(tab.name);
                     btn.draggable = true;
                     btn.dataset.tabId = tab.id;
 
@@ -3305,12 +3538,12 @@
                         markUnsaved();
                     });
 
-                    btn.title = "Click to switch • Right-click for options • Drag to reorder";
+                    btn.title = tr("Click to switch • Right-click for options • Drag to reorder");
                     bar.appendChild(btn);
                 });
                 const addBtn = document.createElement("button");
                 addBtn.className = "tier-tab-add";
-                addBtn.textContent = "+ New Tab";
+                addBtn.innerHTML = iconSvg("plus") + "<span>" + tr("New Tab") + "</span>";
                 addBtn.addEventListener("click", () => addNewTab());
                 bar.appendChild(addBtn);
             }
@@ -3337,7 +3570,7 @@
             function openTabContextMenu(tabId) {
                 _activeTabCtxId = tabId;
                 const tab = state.tabs.find(t => t.id === tabId);
-                document.getElementById("tab-ctx-title").textContent = "Tab: " + (tab ? tab.name : "");
+                document.getElementById("tab-ctx-title").textContent = tr("Tab: ") + (tab ? displayTabName(tab.name) : "");
                 document.getElementById("tab-ctx-delete-btn").disabled = state.tabs.length <= 1;
                 document.getElementById("tab-ctx-delete-btn").style.opacity = state.tabs.length <= 1 ? "0.4" : "";
                 document.getElementById("tab-ctx-modal").classList.add("active");
@@ -3352,7 +3585,7 @@
                     document.getElementById("tab-ctx-modal").classList.remove("active");
                     const tab = state.tabs.find(t => t.id === _activeTabCtxId);
                     if (!tab) return;
-                    const newName = prompt("Rename tab:", tab.name);
+                    const newName = prompt("Rename tab:", displayTabName(tab.name));
                     if (newName && newName.trim()) {
                         tab.name = newName.trim();
                         renderTabs();
@@ -3372,7 +3605,7 @@
                         color: tier.color,
                         images: [...tier.images],
                     }));
-                    addNewTab(tab.name + " (copy)", clonedTiers);
+                    addNewTab(displayTabName(tab.name) + tr(" (copy)"), clonedTiers);
                     _activeTabCtxId = null;
                 });
                 document.getElementById("tab-ctx-delete-btn").addEventListener("click", () => {
@@ -3429,7 +3662,8 @@
 
                     const upBtn = document.createElement("button");
                     upBtn.className = "handle-btn";
-                    upBtn.innerHTML = "▲";
+                    upBtn.innerHTML = iconSvg("chevron-up");
+                    upBtn.title = tr("Move up");
                     upBtn.disabled = index === 0;
                     upBtn.addEventListener("click", () =>
                         moveTierOrder(index, -1),
@@ -3437,7 +3671,8 @@
 
                     const downBtn = document.createElement("button");
                     downBtn.className = "handle-btn";
-                    downBtn.innerHTML = "▼";
+                    downBtn.innerHTML = iconSvg("chevron-down");
+                    downBtn.title = tr("Move down");
                     downBtn.disabled = index === state.tiers.length - 1;
                     downBtn.addEventListener("click", () =>
                         moveTierOrder(index, 1),
@@ -3519,7 +3754,7 @@
                 const sizeStr = formatBytes(totalBytes);
                 const countEl = document.getElementById("bank-count");
                 if (countEl) {
-                    countEl.textContent = `(${bankKeys.length} in bank, ${tierCount} in list) · ${sizeStr}`;
+                    countEl.textContent = tr(`(${bankKeys.length} in bank, ${tierCount} in list) · ${sizeStr}`);
                 }
             }
 
